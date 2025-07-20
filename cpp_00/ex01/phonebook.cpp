@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 19:48:01 by yulpark           #+#    #+#             */
-/*   Updated: 2025/07/19 20:22:21 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/07/20 19:53:50 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,11 @@ PhoneBook::PhoneBook(void)
 	std::cout << "   SEARCH: dispaly a specific contact\n";
 	std::cout << "   EXIT: quits programe\n";
 
+	std::cout << "\n";
+	std::cout << "=====================================================\n";
+	std::cout << "\n";
 	index = 0;
+	num_contacts = 0;
 }
 
 PhoneBook::~PhoneBook(void)
@@ -40,30 +44,55 @@ PhoneBook::~PhoneBook(void)
 
 void PhoneBook::ADD(void)
 {
-	contacts[index % 8].add_contacts();
+	std::cout << "\n";
+	contacts[index % MAX_CONTENT].add_contacts();
 	index++;
+	if (num_contacts < MAX_CONTENT)
+		num_contacts++;
+	std::cout << "\n";
 }
 
 void PhoneBook::print_result(void)
 {
-	std::cout << std::setw(10) << std::right << "index" << "|"
+	int num = 0;
+	std::cout << "|" << std::setw(10) << std::right << "index" << "|"
 		<< std::setw(10) << std::right << "first name" << "|"
 		<< std::setw(10) << std::right << "last name" << "|"
-		<< std::setw(10) << std::right << "Phone Number" << "|" << std::endl;
-	while (contacts[index].is_filled() == 1)
+		<< std::setw(10) << std::right << "nickname" << "|" << std::endl;
+	while (num < num_contacts)
 	{
-		contacts[index].print_contact(index);
-		index++;
+		contacts[num].print_contact(num);
+		num++;
 	}
 }
 
 void PhoneBook::SEARCH(void)
 {
-	std::cout << "Write the index of the contact that you want to search: \n";
-	int index;
+	std::string num;
+	std::cout << "\n";
+	if (num_contacts == 0)
+	{
+		std::cout << "No contacts saved in your PhoneBook! \n";
+		return ;
+	}
+	print_result();
 	while (true)
 	{
-		std::getline(std::cin, index);
-		
+		std::cout << "Write the index of the contact that you want to search: \n";
+		std::getline(std::cin, num);
+		if (num[1])
+		{
+			std::cout << "Invalid index. Choose a number between 1 and 8.\n";
+			continue;
+		}
+
+		if ((num[0] - '0') < 1 || (num[0] - '0') > MAX_CONTENT || (num[0] - '0') > num_contacts)
+		{
+			std::cout << "Invalid index. Choose a number between 1 and 8.\n";
+			continue;
+		}
+		break;
 	}
+	contacts[(num[0] - '0') - 1].print_contact_specific();
+	std::cout << "\n";
 }

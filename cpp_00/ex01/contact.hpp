@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 19:48:06 by yulpark           #+#    #+#             */
-/*   Updated: 2025/07/19 20:20:19 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/07/20 19:32:44 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <string>
 #include <iostream>
+#include <iomanip>
 
 class Contact
 {
@@ -28,8 +29,9 @@ class Contact
 	public:
 		Contact();
 		void add_contacts(void);
-		int is_filled(void);
 		void print_contact(int index);
+		std::string handle_phone_num(void);
+		void print_contact_specific(void);
 };
 
 #endif
