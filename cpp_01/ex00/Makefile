@@ -6,11 +6,11 @@
 #    By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/20 14:54:18 by yulpark           #+#    #+#              #
-#    Updated: 2025/07/25 22:38:04 by yulpark          ###   ########.fr        #
+#    Updated: 2025/07/25 23:02:24 by yulpark          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = account
+NAME = BraiiinnnzzZ
 
 RESET   = \033[0m
 GREEN   = \033[32m
@@ -21,7 +21,7 @@ CPP = g++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 CPPFLAGS += -fsanitize=address
 
-SRCS = Account.cpp tests.cpp
+SRCS = main.cpp Zombie.hpp Zombie.cpp newZombie.cpp randomChump.cpp
 OBJS_DIR = objs/
 OBJS_O = $(SRCS:.cpp=.o)
 OBJS = $(addprefix $(OBJS_DIR), $(OBJS_O))
