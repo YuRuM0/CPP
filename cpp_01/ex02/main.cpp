@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/19 19:48:11 by yulpark           #+#    #+#             */
-/*   Updated: 2025/07/26 15:12:01 by yulpark          ###   ########.fr       */
+/*   Created: 2025/07/26 20:56:52 by yulpark           #+#    #+#             */
+/*   Updated: 2025/07/26 21:08:40 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
-int main(int ac, char **av)
+int main(void)
 {
-	if (ac < 2)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
-	else
-	{
-		int i = 0;
-		while (av[++i])
-		{
-			int j = -1;
-			if (i > 1)
-				std::cout << " ";
-			while (av[i][++j])
-				std::cout << (char)toupper(av[i][j]);
-		}
-		std::cout << std::endl;
-	}
+	std::string var = "HI THIS IS BRAIN";
+	std::string *stringPTR = &var;
+	std::string &stringREF = var;
+
+	std::cout << std::endl;
+	std::cout << &var << std::endl;
+	std::cout << &stringPTR << std::endl;
+	std::cout << &stringREF << std::endl;
+	std::cout << std::endl;
+
+	std::cout << var << std::endl;
+	std::cout << *stringPTR << std::endl;
+	std::cout << stringREF << std::endl;
+
 	return (0);
 }

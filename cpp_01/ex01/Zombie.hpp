@@ -1,19 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/25 23:04:16 by yulpark           #+#    #+#             */
-/*   Updated: 2025/07/26 18:25:10 by yulpark          ###   ########.fr       */
+/*   Created: 2025/07/26 18:33:46 by yulpark           #+#    #+#             */
+/*   Updated: 2025/07/26 20:48:13 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef ZOMBIEHORDE_HPP
+# define ZOMBIEHORDE_HPP
 
-Zombie* newZombie( std::string name )
+#include <iostream>
+#include <iomanip>
+#include <string>
+
+class Zombie
 {
-	Zombie *Zombie2 = new Zombie(name); // allocate object on the heap
-	return (Zombie2);
-}
+	private:
+		std::string name;
+
+	public:
+		Zombie() {}
+		Zombie(std::string name);
+		~Zombie(void);
+		void	announce(std::string name);
+
+};
+
+Zombie* zombieHorde( int N, std::string name );
+
+#endif

@@ -5,18 +5,43 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/25 23:04:11 by yulpark           #+#    #+#             */
-/*   Updated: 2025/07/26 18:32:12 by yulpark          ###   ########.fr       */
+/*   Created: 2025/07/26 18:33:43 by yulpark           #+#    #+#             */
+/*   Updated: 2025/07/26 20:55:22 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
+int is_number(std::string N)
+{
+	for (int i = 0; N[i]; i++)
+	{
+		if (std::isdigit(N[i]) == 0)
+			return (0);
+	}
+	return (1);
+}
+
 int main(void)
 {
-	randomChump("zombino");
-	Zombie *Zombie2 = newZombie("zombina");
-	Zombie2->announce();
-	delete Zombie2;
+	std::string N;
+	std::string name;
+	std::cout << "Time to create a horde of Zombies!\n";
+	while (true)
+	{
+		std::cout << "Give the zombies a name:\n";
+		std::getline(std::cin, name);
+		if (!name.empty())
+			break;
+	}
+	while (true)
+	{
+		std::cout << "How many zombies would you like: \n";
+		std::getline(std::cin, N);
+		if (is_number(N))
+			break;
+	}
+	Zombie *Zombies = zombieHorde(stoi(N), name);
+	delete[] Zombies;
 	return (0);
 }

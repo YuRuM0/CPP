@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 19:48:08 by yulpark           #+#    #+#             */
-/*   Updated: 2025/07/20 19:37:15 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/07/26 15:35:15 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void Contact::add_contacts(void)
 
 std::string format(std::string value)
 {
-	if (value.length() > 0)
+	if (value.length() > 10)
 		return (value.substr(0,9) + ".");
 	return (value);
 }

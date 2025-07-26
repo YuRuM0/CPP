@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/25 23:04:16 by yulpark           #+#    #+#             */
-/*   Updated: 2025/07/26 18:25:10 by yulpark          ###   ########.fr       */
+/*   Created: 2025/07/26 21:11:08 by yulpark           #+#    #+#             */
+/*   Updated: 2025/07/26 21:29:00 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef HUMAN_A
+#define HUMAN_A
 
-Zombie* newZombie( std::string name )
+#include "Weapon.hpp"
+
+class HumanA
 {
-	Zombie *Zombie2 = new Zombie(name); // allocate object on the heap
-	return (Zombie2);
-}
+	private:
+		Weapon weapon;
+		std::string name;
+
+	public:
+		HumanA(Weapon weapon);
+		~HumanA(void);
+		void attack(Weapon weapon, std::string name);
+};
+
+#endif

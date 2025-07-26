@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/19 19:48:01 by yulpark           #+#    #+#             */
-/*   Updated: 2025/07/20 19:53:50 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/07/26 15:40:56 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 PhoneBook::PhoneBook(void)
 {
-	std::cout << "=====================================================\n";
+	std::cout << "=========================================================================\n";
 	std::cout << "Welcome to the 80s and their unbelievable technology!\n";
-	std::cout << "=====================================================\n";
+	std::cout << "=========================================================================\n";
 
 	std::cout << "Rules: \n";
 	std::cout << "The PhoneBook stores upto 8 contacts.\n";
@@ -28,7 +28,7 @@ PhoneBook::PhoneBook(void)
 	std::cout << "   EXIT: quits programe\n";
 
 	std::cout << "\n";
-	std::cout << "=====================================================\n";
+	std::cout << "=========================================================================\n";
 	std::cout << "\n";
 	index = 0;
 	num_contacts = 0;
@@ -36,10 +36,10 @@ PhoneBook::PhoneBook(void)
 
 PhoneBook::~PhoneBook(void)
 {
-	std::cout << "=====================================================\n";
+	std::cout << "\n=========================================================================\n";
 	std::cout << "Goodbye to the 80s and their unbelievable technology!\n";
 	std::cout << "All the contacts are lost forever....\n";
-	std::cout << "=====================================================\n";
+	std::cout << "=========================================================================\n";
 }
 
 void PhoneBook::ADD(void)
@@ -78,17 +78,21 @@ void PhoneBook::SEARCH(void)
 	print_result();
 	while (true)
 	{
-		std::cout << "Write the index of the contact that you want to search: \n";
+		std::cout << "\n\nWrite the index of the contact that you want to search: \n";
 		std::getline(std::cin, num);
 		if (num[1])
 		{
 			std::cout << "Invalid index. Choose a number between 1 and 8.\n";
 			continue;
 		}
-
-		if ((num[0] - '0') < 1 || (num[0] - '0') > MAX_CONTENT || (num[0] - '0') > num_contacts)
+		if ((num[0] - '0') < 1 || (num[0] - '0') > MAX_CONTENT)
 		{
 			std::cout << "Invalid index. Choose a number between 1 and 8.\n";
+			continue;
+		}
+		if ((num[0] - '0') > num_contacts)
+		{
+			std::cout << "There are only " << num_contacts << " contacts.\n";
 			continue;
 		}
 		break;

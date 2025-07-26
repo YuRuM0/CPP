@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/25 23:04:16 by yulpark           #+#    #+#             */
-/*   Updated: 2025/07/26 18:25:10 by yulpark          ###   ########.fr       */
+/*   Created: 2025/07/26 21:11:16 by yulpark           #+#    #+#             */
+/*   Updated: 2025/07/26 21:25:16 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef WEAPON
+#define WEAPON
 
-Zombie* newZombie( std::string name )
+#include <string>
+#include <iostream>
+
+class Weapon
 {
-	Zombie *Zombie2 = new Zombie(name); // allocate object on the heap
-	return (Zombie2);
-}
+	private:
+		std::string type;
+	public:
+		Weapon(std::string type);
+		~Weapon(void);
+		const std::string &getType();
+		void setType(std::string new_value);
+};
+
+#endif

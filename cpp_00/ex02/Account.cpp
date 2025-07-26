@@ -6,12 +6,10 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/20 20:02:56 by yulpark           #+#    #+#             */
-/*   Updated: 2025/07/25 22:47:00 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/07/26 15:54:09 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <iomanip>
 #include "Account.hpp"
 
 //not initialised in the main...
@@ -32,7 +30,7 @@ Account::Account(int initial_deposit)
 
 	_displayTimestamp();
 	std::cout << " index:" << _accountIndex << ";amount:" << _amount
-			  << "; created\n";
+			  << ";created\n";
 }
 
 Account::~Account( void )
@@ -128,7 +126,7 @@ void Account::_displayTimestamp(void)
 	char formatted[16]; // hold the formatted ts
 
 	time(&timestamp); // fills the variable w/ current time
-	strftime(formatted, sizeof(formatted), "%Y%m%d_%H%M%S", localtime(&timestamp));
+	std::strftime(formatted, sizeof(formatted), "%Y%m%d_%H%M%S", std::localtime(&timestamp));
 	std::cout << '[' << formatted << ']';
 }
 

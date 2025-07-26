@@ -6,19 +6,17 @@
 #    By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/20 14:49:38 by yulpark           #+#    #+#              #
-#    Updated: 2025/07/20 14:54:05 by yulpark          ###   ########.fr        #
+#    Updated: 2025/07/26 20:59:20 by yulpark          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = megaphone
 
-RESET   = \033[0m
 GREEN   = \033[32m
-YELLOW  = \033[33m
-BOLD	= \033[1m
 
 CPP = g++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
+CPPFLAGS += -fsanitize=address
 
 SRCS = megaphone.cpp
 OBJS_DIR = objs/
@@ -35,7 +33,6 @@ $(NAME): $(OBJS)
 $(OBJS_DIR)%.o: %.cpp
 	@mkdir -p $(dir $@)
 	$(CPP) $(CPPFLAGS) -c $< -o $@
-	@echo "$(GREEN)Compiling: $< into $@$(RESET)"
 
 clean:
 	@rm -fr $(OBJS_DIR)
