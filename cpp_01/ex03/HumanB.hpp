@@ -6,25 +6,26 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 21:11:10 by yulpark           #+#    #+#             */
-/*   Updated: 2025/07/26 21:29:45 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/07/28 16:29:51 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMAN_B
-#define HUMAN_B
+#ifndef HUMAN_B_H
+#define HUMAN_B_H
 
 #include "Weapon.hpp"
 
 class HumanB
 {
 	private:
-		Weapon weapon;
+		Weapon *weapon;
 		std::string name;
 
 	public:
-		HumanB(void);
+		HumanB(std::string name);
 		~HumanB(void);
-		void attack(Weapon weapon, std::string name);
+		void setWeapon(Weapon &weapon);
+		void attack(void);
 };
 
 #endif

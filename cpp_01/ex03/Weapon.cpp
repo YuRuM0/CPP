@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/26 21:11:12 by yulpark           #+#    #+#             */
-/*   Updated: 2025/07/28 16:14:35 by yulpark          ###   ########.fr       */
+/*   Created: 2025/07/28 15:22:53 by yulpark           #+#    #+#             */
+/*   Updated: 2025/07/28 16:20:34 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanA.hpp"
-#include "HumanB.hpp"
+#include "Weapon.hpp"
 
-int main()
+Weapon::Weapon(std::string type)
 {
-	{
-		Weapon club = Weapon("crude spiked club");
-		HumanA bob("Bob", club);
-		bob.attack();
-		club.setType("some other type of club");
-		bob.attack();
-	}
-	{
-		Weapon club = Weapon("crude spiked club");
-		HumanB jim("Jim");
-		jim.setWeapon(club);
-		jim.attack();
-		club.setType("some other type of club");
-		jim.attack();
-	}
-	return 0;
+	this->type = type;
+}
+
+Weapon::~Weapon(void)
+{
+	std::cout << "Weapon destroyed\n";
+}
+
+const std::string &Weapon::getType(void)
+{
+	return (this->type);
+}
+void Weapon::setType(std::string new_value)
+{
+	this->type = new_value;
 }

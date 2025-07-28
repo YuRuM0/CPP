@@ -5,12 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/07/26 21:11:14 by yulpark           #+#    #+#              #
-#    Updated: 2025/07/28 16:32:00 by yulpark          ###   ########.fr        #
+#    Created: 2025/07/28 20:17:01 by yulpark           #+#    #+#              #
+#    Updated: 2025/07/28 20:17:11 by yulpark          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Unnecessary_Violence
+NAME = Harl_filter
 
 GREEN   = \033[32m
 RESET   = \033[0m
@@ -19,7 +19,7 @@ CPP = g++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++11
 CPPFLAGS += -fsanitize=address
 
-SRCS = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
+SRCS = main.cpp Harl.cpp
 OBJS_DIR = objs/
 OBJS_O = $(SRCS:.cpp=.o)
 OBJS = $(addprefix $(OBJS_DIR), $(OBJS_O))
