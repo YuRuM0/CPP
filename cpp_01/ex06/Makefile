@@ -6,11 +6,11 @@
 #    By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/28 20:17:01 by yulpark           #+#    #+#              #
-#    Updated: 2025/07/28 20:17:11 by yulpark          ###   ########.fr        #
+#    Updated: 2025/07/29 16:03:24 by yulpark          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Harl_filter
+NAME = harlFilter
 
 GREEN   = \033[32m
 RESET   = \033[0m

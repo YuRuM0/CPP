@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 19:49:06 by yulpark           #+#    #+#             */
-/*   Updated: 2025/07/28 20:16:14 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/07/29 16:09:02 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void Harl::info(void)
 
 void Harl::warning(void)
 {
-	std::cout << "I think I deserve to have some extra bacon for free. I’ve been coming for years, whereas you started working here just last month\n";
+	std::cout << "I think I deserve to have some extra bacon for free. I’ve been coming for years, whereas you started working here just last month.\n";
 }
 
 void Harl::error(void)
@@ -41,6 +41,11 @@ void Harl::complain( std::string level )
 		if (level == options[i])
 		{
 			(this->*messages[i])(); //() is required to call the function?
+			break;
+		}
+		else
+		{
+			std::cout << "The possible inputs are DEBUG, INFO, WARNING and ERROR.\n";
 			break;
 		}
 	}
