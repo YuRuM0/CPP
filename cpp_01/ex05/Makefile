@@ -6,7 +6,7 @@
 #    By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/28 19:48:57 by yulpark           #+#    #+#              #
-#    Updated: 2025/07/28 19:49:22 by yulpark          ###   ########.fr        #
+#    Updated: 2025/07/30 15:07:37 by yulpark          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,11 +15,11 @@ NAME = Harl
 GREEN   = \033[32m
 RESET   = \033[0m
 
-CPP = g++
+CPP = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++11
 CPPFLAGS += -fsanitize=address
 
-SRCS = main.cpp Harl.cpp 
+SRCS = main.cpp Harl.cpp
 OBJS_DIR = objs/
 OBJS_O = $(SRCS:.cpp=.o)
 OBJS = $(addprefix $(OBJS_DIR), $(OBJS_O))

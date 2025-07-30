@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 19:49:06 by yulpark           #+#    #+#             */
-/*   Updated: 2025/07/29 16:09:02 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/07/30 15:43:24 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,18 +35,15 @@ void Harl::error(void)
 void Harl::complain( std::string level )
 {
 	std::string options[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	void (Harl::*messages[4])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+	void (Harl::*messages[4])() = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error}; // the () here means that no arg taken // hand the pointer to the mem func. directly
 	for (int i = 0; (i < 4); i++)
 	{
 		if (level == options[i])
 		{
-			(this->*messages[i])(); //() is required to call the function?
+			(this->*messages[i])(); //() is required to actually invoke the function //without * the function won't be properly dereferenced
 			break;
 		}
-		else
-		{
+		if (level != options[i] && i == 3)
 			std::cout << "The possible inputs are DEBUG, INFO, WARNING and ERROR.\n";
-			break;
-		}
 	}
 }

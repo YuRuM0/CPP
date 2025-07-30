@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 20:33:01 by yulpark           #+#    #+#             */
-/*   Updated: 2025/07/29 21:04:21 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/07/30 16:52:56 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <string>
+#include <cmath>
 
 class Fixed
 {
@@ -24,13 +25,15 @@ class Fixed
 
 	public:
 		Fixed(void);
+		Fixed(const Fixed &obj);
 		Fixed(const int);
 		Fixed(const float);
-		Fixed &Fixed::operator<<(Fixed const& obj);
+		Fixed &operator=(const Fixed& obj);
 		~Fixed();
 		float toFloat( void ) const;
 		int toInt( void ) const;
 };
 
+std::ostream& operator<<(std::ostream& os, const Fixed& obj);
 
 #endif

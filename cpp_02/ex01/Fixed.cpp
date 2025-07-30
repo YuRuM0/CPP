@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 20:33:04 by yulpark           #+#    #+#             */
-/*   Updated: 2025/07/29 21:23:19 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/07/30 16:52:33 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,32 +16,43 @@ Fixed::Fixed(void): num_val(0)
 {
 	std::cout << "Default constructor called\n";
 }
-Fixed &Fixed::operator<<(Fixed const& obj)
+
+//int Fixed::getRawBits(void) const
+//{
+//	//std::cout << "getRawBits member function called\n";
+//	return (this->num_val);
+//}
+
+Fixed::Fixed(const Fixed &obj)
+{
+	std::cout << "Copy constructor called\n";
+	this->num_val = obj.num_val;
+}
+
+Fixed &Fixed::operator=(const Fixed& obj)
 {
 	std::cout << "Copy assignment operator called\n";
 	if (this != &obj)
-		this->frac_bits = obj.toFloat();
+        this->num_val = obj.num_val;
 	return (*this);
 }
 
-Fixed &Fixed::operator=(Fixed const& obj)
+std::ostream &operator<<(std::ostream& os, const Fixed& obj)
 {
-	std::cout << "Copy assignment operator called\n";
-	if (this != &obj)
-		this->num_val = obj.num_val;
-	return (*this);
+	os << obj.toFloat();
+	return (os);
 }
 
 Fixed::Fixed(const int num)
 {
 	std::cout << "Int constructor called\n";
-	this->num_val = num;
+	this->num_val = num << frac_bits;
 }
 
 Fixed::Fixed(const float num)
 {
 	std::cout << "Float constructor called\n";
-	this->frac_bits = num;
+	this->num_val = roundf(num * (1 << frac_bits));
 }
 
 Fixed::~Fixed(void)
@@ -51,10 +62,10 @@ Fixed::~Fixed(void)
 
 float Fixed::toFloat(void) const
 {
-	return 0.0f;
+	return ((float)num_val / (1 << frac_bits));
 }
 
 int Fixed::toInt(void) const
 {
-	return 0;
+	return ((int) num_val >> frac_bits);
 }

@@ -6,7 +6,7 @@
 #    By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/26 20:57:42 by yulpark           #+#    #+#              #
-#    Updated: 2025/07/26 21:13:01 by yulpark          ###   ########.fr        #
+#    Updated: 2025/07/30 15:07:29 by yulpark          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = HiBrain
 GREEN   = \033[32m
 RESET   = \033[0m
 
-CPP = g++
+CPP = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++11
 CPPFLAGS += -fsanitize=address
 

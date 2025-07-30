@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 18:51:01 by yulpark           #+#    #+#             */
-/*   Updated: 2025/07/29 20:52:38 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/07/30 16:02:14 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ Fixed::Fixed(const Fixed &obj)
 {
 	std::cout << "Copy constructor called\n";
 	this->num_val = obj.getRawBits();
-	//this->frac_bits = obj.frac_bits;
 }
 
 /*

@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 18:51:05 by yulpark           #+#    #+#             */
-/*   Updated: 2025/07/29 20:18:43 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/07/30 16:41:58 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class Fixed
 	public:
 		Fixed(void);
 		Fixed(const Fixed &obj);
-		Fixed &operator=(Fixed const& obj);
+		Fixed &operator=(const Fixed& obj);
 		~Fixed(void);
 		int getRawBits( void ) const;
 		void setRawBits( int const raw );

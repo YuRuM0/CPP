@@ -6,7 +6,7 @@
 #    By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/20 14:54:18 by yulpark           #+#    #+#              #
-#    Updated: 2025/07/26 21:13:11 by yulpark          ###   ########.fr        #
+#    Updated: 2025/07/30 15:07:23 by yulpark          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = BraiiinnnzzZ
 RESET   = \033[0m
 GREEN   = \033[32m
 
-CPP = g++
+CPP = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 CPPFLAGS += -fsanitize=address
 
