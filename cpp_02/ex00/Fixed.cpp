@@ -6,13 +6,13 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 18:51:01 by yulpark           #+#    #+#             */
-/*   Updated: 2025/07/30 16:02:14 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/01 13:52:00 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-Fixed::Fixed(void) :  num_val(0)
+Fixed::Fixed(void) : num_val(0)
 {
 	std::cout << "Default constructor called\n";
 }
@@ -34,7 +34,7 @@ Fixed &Fixed::operator=(Fixed const& obj)
 {
 	std::cout << "Copy assignment operator called\n";
 	if (this != &obj)
-        this->num_val = obj.getRawBits();
+		this->num_val = obj.getRawBits();
 	return (*this);
 }
 
