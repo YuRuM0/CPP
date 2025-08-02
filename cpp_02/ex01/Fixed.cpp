@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 20:33:04 by yulpark           #+#    #+#             */
-/*   Updated: 2025/07/30 16:52:33 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/02 21:44:30 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,16 @@ Fixed::Fixed(void): num_val(0)
 //	return (this->num_val);
 //}
 
-Fixed::Fixed(const Fixed &obj)
+Fixed::Fixed(const Fixed &obj): num_val(obj.num_val)
 {
 	std::cout << "Copy constructor called\n";
-	this->num_val = obj.num_val;
 }
 
 Fixed &Fixed::operator=(const Fixed& obj)
 {
 	std::cout << "Copy assignment operator called\n";
 	if (this != &obj)
-        this->num_val = obj.num_val;
+		this->num_val = obj.num_val;
 	return (*this);
 }
 

@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 20:37:06 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/01 14:15:49 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/02 21:45:12 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,8 @@ Fixed::Fixed(void) : num_val(0)
 {
 }
 
-Fixed::Fixed(const Fixed &obj)
+Fixed::Fixed(const Fixed &obj): num_val(obj.num_val)
 {
-	this->num_val = obj.getRawBits();
 }
 
 Fixed::Fixed(const int num)
@@ -55,64 +54,116 @@ int Fixed::toInt(void) const
 	return ((int) num_val >> frac_bits);
 }
 
-bool Fixed::operator>(const Fixed& obj)
+bool Fixed::operator>(const Fixed& obj) const
 {
 	if (toFloat() >  obj.toFloat())
 		return (true);
 	return (false);
 }
 
-bool Fixed::operator<(const Fixed& obj)
+bool Fixed::operator<(const Fixed& obj) const
 {
 	if (toFloat() < obj.toFloat())
 		return (true);
 	return (false);
 }
 
-bool Fixed::operator>=(const Fixed& obj)
+bool Fixed::operator>=(const Fixed& obj) const
 {
 	if (toFloat() >= obj.toFloat())
 		return (true);
 	return (false);
 }
 
-bool Fixed::operator==(const Fixed& obj)
+bool Fixed::operator==(const Fixed& obj) const
 {
 	if (toFloat() == obj.toFloat())
 		return (true);
 	return (false);
 }
 
-bool Fixed::operator!=(const Fixed& obj)
+bool Fixed::operator!=(const Fixed& obj) const
 {
 	if (toFloat() != obj.toFloat())
 		return (true);
 	return (false);
 }
 
-Fixed &Fixed::operator+(const Fixed& obj)
+float Fixed::operator+(const Fixed& obj)
 {
-	this->num_val += obj.toFloat();
+	return (num_val + obj.toFloat());
+}
+
+float Fixed::operator-(const Fixed& obj)
+{
+	return (num_val - obj.toFloat());
+}
+
+float Fixed::operator*(const Fixed& obj)
+{
+	return (num_val * obj.toFloat());
+}
+
+float Fixed::operator/(const Fixed& obj)
+{
+	return (num_val / obj.toFloat());
+}
+
+Fixed &Fixed::operator++()
+{
+	num_val += 1;
 	return (*this);
 }
 
-//Fixed &Fixed::operator-(const Fixed& obj)
-//{
-//}
-
-
-Fixed &Fixed::operator*(const Fixed& obj)
+Fixed &Fixed::operator--()
 {
-	num_val *= obj.toFloat();
+	num_val -= 1;
 	return (*this);
 }
 
+Fixed Fixed::operator++(int)
+{
+	Fixed temp;
+	temp = *this;
+	num_val += 1;
+	return (temp);
+}
 
-//Fixed &Fixed::operator/(const Fixed& obj)
-//{
+Fixed Fixed::operator--(int)
+{
+	Fixed temp;
+	temp = *this;
+	num_val -= 1;
+	return (temp);
+}
 
-//}
+Fixed &Fixed::min(Fixed &a, Fixed &b)
+{
+	if (a < b)
+		return (a);
+	return (b);
+}
 
+const Fixed &Fixed::min(const Fixed &a, const Fixed &b)
+{
+	if (a < b)
+		return (a);
+	return (b);
+}
+
+Fixed &Fixed::max(Fixed &a, Fixed &b)
+{
+	if (a > b)
+		return (a);
+	return (b);
+}
+
+const Fixed &Fixed::max(const Fixed &a, const Fixed &b)
+{
+	if (a > b)
+		return (a);
+	return (b);
+}
 
 Fixed &Fixed::operator=(Fixed const& obj)
 {
@@ -126,3 +177,4 @@ std::ostream &operator<<(std::ostream& os, const Fixed& obj)
 	os << obj.toFloat();
 	return (os);
 }
+

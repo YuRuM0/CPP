@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 18:51:01 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/01 13:52:00 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/02 21:45:23 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,9 @@ Fixed::Fixed(void) : num_val(0)
 this obj is the old one, the one is already there, and this refers to the
 newly created object
 */
-Fixed::Fixed(const Fixed &obj)
+Fixed::Fixed(const Fixed &obj): num_val(obj.num_val)
 {
 	std::cout << "Copy constructor called\n";
-	this->num_val = obj.getRawBits();
 }
 
 /*
