@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 21:11:04 by yulpark           #+#    #+#             */
-/*   Updated: 2025/07/30 15:25:10 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/04 17:23:21 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,8 @@ void HumanB::setWeapon(Weapon &weapon)
 
 void HumanB::attack(void)
 {
-	std::cout << this->name << " attacks with their " << this->weapon->getType() << std::endl;
+	if (weapon == NULL)
+		std::cout << this->name << "attacks with their bare hands\n";
+	else
+		std::cout << this->name << " attacks with their " << this->weapon->getType() << std::endl;
 }

@@ -6,7 +6,7 @@
 #    By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/03 19:55:59 by yulpark           #+#    #+#              #
-#    Updated: 2025/08/03 19:57:34 by yulpark          ###   ########.fr        #
+#    Updated: 2025/08/04 14:56:14 by yulpark          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ CPP = c++
 CPP_FLAGS = -Wall -Wextra -Werror
 CPP_FLAGS += -fsanitize=address
 
-SRCS = main.cpp ClapTRap.cpp
+SRCS = main.cpp ClapTrap.cpp
 OBJS_DIR = objs/
 OBJS_O = $(SRCS:.cpp=.o)
 OBJS = $(addprefix $(OBJS_DIR), $(OBJS_O))

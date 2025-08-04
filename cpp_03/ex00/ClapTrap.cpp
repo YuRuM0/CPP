@@ -13,13 +13,12 @@
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(): Hit_pts(10), Energy_pts(10), Attack_dmg(0)
+ClapTrap::ClapTrap(): name(""), Hit_pts(10), Energy_pts(10), Attack_dmg(0)
 {
 	std::cout << "Constructor called!\n";
 }
 
-ClapTrap::ClapTrap(const ClapTrap &ClapTrap) : name(ClapTrap.name), Hit_pts(ClapTrap.Hit_pts),
-					Energy_pts(ClapTrap.Energy_pts), Attack_dmg(ClapTrap.Attack_dmg)
+ClapTrap::ClapTrap(const std::string name): name(name), Hit_pts(10), Energy_pts(10), Attack_dmg(2)
 {
 	std::cout << "Copy Constructor called!\n";
 }
@@ -29,34 +28,9 @@ ClapTrap::~ClapTrap()
 	std::cout << "Destructor called!\n";
 }
 
-void ClapTrap::attack(const std::string &target)
-{
-	//causes target to lose attack damage hit points
-	if (name == target)
-		takeDamage(Attack_dmg);
-	//cost one energy point
-	Energy_pts -= 1;
-	std::cout << "ClapTrap " << name << " attacks " << target << " , causing " << Attack_dmg << " points of damage!/n";
-}
-
-void ClapTrap::takeDamage(unsigned int amount)
-{
-	std::cout << "ClapTrap " << name << " takes " << amount << " points of damage!/n";
-	Attack_dmg += amount;
-}
-
-void ClapTrap::beRepaired(unsigned int amount)
-{
-	//regains amount hit points
-	Hit_pts += amount;
-	//requires one energy point
-	Energy_pts -= 1;
-	std::cout << "ClapTrap " << name << " regains " << amount << " amount of hitpoints!/n";
-}
-
 int ClapTrap::getHit()
 {
-	return Hit_pts;
+	return this->Hit_pts;
 }
 
 int ClapTrap::getEnergy()
@@ -64,12 +38,25 @@ int ClapTrap::getEnergy()
 	return Energy_pts;
 }
 
-int ClapTrap::getDamage()
+void ClapTrap::attack(const std::string &target)
 {
-	return Attack_dmg;
+	std::cout << "ClapTrap " << name << " attacks " << target << ", causing " << Attack_dmg << " points of damage!\n";
+	//causes target to lose attack damage hit points
+	//cost one energy point
+	Energy_pts -= 1;
 }
 
-const std::string &ClapTrap::getName() const
+void ClapTrap::takeDamage(unsigned int amount)
 {
-	return name;
+	std::cout << "ClapTrap " << name << " takes " << amount << " points of damage!\n";
+	Hit_pts -= amount;
+}
+
+void ClapTrap::beRepaired(unsigned int amount)
+{
+	std::cout << "ClapTrap " << name << " regains " << amount << " amount of hit points!\n";
+	//regains amount hit points
+	Hit_pts += amount;
+	//requires one energy point
+	Energy_pts -= 1;
 }

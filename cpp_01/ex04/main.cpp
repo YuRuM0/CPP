@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 16:37:16 by yulpark           #+#    #+#             */
-/*   Updated: 2025/07/28 19:47:33 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/04 17:28:33 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,13 @@ int main(int ac, char **av)
 	file.open(av[1], std::ios::in);
 	if (file.is_open())
 	{
-		getline(file, str);
 		std::ofstream new_file(std::string(av[1]) + ".replace");
-		new_file << modified(str, av[2], av[3]);
+		 while (std::getline(file, str))
+    	{
+        	new_file << modified(str, av[2], av[3]);
+        	if (!file.eof())
+          		new_file << "\n";
+		}
 		new_file.close();
 		file.close();
 	}

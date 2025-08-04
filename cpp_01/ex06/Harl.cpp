@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 20:16:52 by yulpark           #+#    #+#             */
-/*   Updated: 2025/07/29 18:42:59 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/04 18:07:55 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,13 @@ void Harl::error(void)
 			  << "This is unacceptable! I want to speak to the manager now.\n";
 }
 
-void Harl::complain( Levels level )
+void Harl::complain( std::string s_level)
 {
-	switch (level) // compares level with each case values, if match found, jumps to that case
+	size_t i {};
+
+	while (level[i] != "INVALID" && level[i] != s_level)
+		i++;
+	switch (i) // compares level with each case values, if match found, jumps to that case
 	{
 		case DEBUG:
 			debug();
