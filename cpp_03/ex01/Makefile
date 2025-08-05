@@ -6,11 +6,11 @@
 #    By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/03 19:55:59 by yulpark           #+#    #+#              #
-#    Updated: 2025/08/04 20:44:21 by yulpark          ###   ########.fr        #
+#    Updated: 2025/08/04 20:26:23 by yulpark          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Aaaaand...OPEN!
+NAME = Serena
 
 GREEN   = \033[32m
 RESET   = \033[0m
