@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 18:33:46 by yulpark           #+#    #+#             */
-/*   Updated: 2025/07/30 15:09:18 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/05 17:47:13 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,10 @@ class Zombie
 		std::string name;
 
 	public:
-		Zombie() {}
-		Zombie(std::string name);
+		Zombie();
+		void giveName(std::string name);
 		~Zombie(void);
-
-		void	announce(std::string name);
+		void	announce();
 };
 
 Zombie*	zombieHorde( int N, std::string name );

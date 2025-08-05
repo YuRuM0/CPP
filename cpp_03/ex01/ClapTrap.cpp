@@ -13,19 +13,25 @@
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(): name(""), Hit_pts(10), Energy_pts(10), Attack_dmg(0)
+ClapTrap::ClapTrap(std::string name): name(name), Hit_pts(10), Energy_pts(10), Attack_dmg(0)
 {
 	std::cout << "Constructor called!\n";
 }
 
-ClapTrap::ClapTrap(const std::string name): name(name), Hit_pts(10), Energy_pts(10), Attack_dmg(2)
+ClapTrap::ClapTrap(const ClapTrap &player)
 {
-	std::cout << "Copy Constructor called!\n";
+	std::cout << "Copy constructor called!\n";
+	*this = player;
 }
 
 ClapTrap::~ClapTrap()
 {
 	std::cout << "Destructor called!\n";
+}
+
+std::string ClapTrap::getName()
+{
+	return this->name;
 }
 
 int ClapTrap::getHit()
@@ -57,4 +63,24 @@ void ClapTrap::beRepaired(unsigned int amount)
 	Hit_pts += amount;
 	//requires one energy point
 	Energy_pts -= 1;
+}
+
+void ClapTrap::setName(std::string name)
+{
+	this->name = name;
+}
+
+void ClapTrap::setHit(int points)
+{
+	this->Hit_pts = points;
+}
+
+void ClapTrap::setEnergy(int points)
+{
+	this->Energy_pts = points;
+}
+
+void ClapTrap::setDamage(int damage)
+{
+	this->Attack_dmg = damage;
 }

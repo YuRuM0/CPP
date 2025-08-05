@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 18:33:43 by yulpark           #+#    #+#             */
-/*   Updated: 2025/07/26 20:55:22 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/05 18:41:06 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ int main(void)
 			break;
 	}
 	Zombie *Zombies = zombieHorde(stoi(N), name);
+	for (int i = 0; i < stoi(N); i++)
+		Zombies[i].announce();
 	delete[] Zombies;
 	return (0);
 }

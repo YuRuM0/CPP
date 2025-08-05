@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/28 16:37:16 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/04 17:28:33 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/05 18:29:40 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ std::string modified(std::string str, std::string s1, std::string s2)
 	size_t current = 0;
 	size_t prev = 0;
 
+	if (s1 == "\0" || s2 == "\0")
+		return (str);
 	while ((current = str.find(s1, prev)) != std::string:: npos) // std::string::npos is returned if not found
 	{
 		new_str.append(str, prev, current - prev);
@@ -43,6 +45,11 @@ int main(int ac, char **av)
 	if (file.is_open())
 	{
 		std::ofstream new_file(std::string(av[1]) + ".replace");
+		if (!new_file)
+		{
+			std::cout << "Failed to create a new file\n";
+			return (1);
+		}
 		 while (std::getline(file, str))
     	{
         	new_file << modified(str, av[2], av[3]);

@@ -13,14 +13,15 @@
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap(): name(""), Hit_pts(10), Energy_pts(10), Attack_dmg(0)
+ClapTrap::ClapTrap(std::string name): name(name), Hit_pts(10), Energy_pts(10), Attack_dmg(0)
 {
 	std::cout << "Constructor called!\n";
 }
 
-ClapTrap::ClapTrap(const std::string name): name(name), Hit_pts(10), Energy_pts(10), Attack_dmg(2)
+ClapTrap::ClapTrap(const ClapTrap &player)
 {
-	std::cout << "Copy Constructor called!\n";
+	std::cout << "A copy constructor called!\n";
+	*this = player;
 }
 
 ClapTrap::~ClapTrap()

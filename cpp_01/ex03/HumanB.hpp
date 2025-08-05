@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 21:11:10 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/04 17:22:46 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/05 18:44:20 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class HumanB
 {
 	private:
-		Weapon *weapon {}; //ptr because we don't want to make a copy and store it in HumanB but just use the premade version
+		Weapon *weapon {};
 		std::string name {};
 
 	public:
