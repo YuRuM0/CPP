@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 21:11:04 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/05 18:38:18 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/06 15:54:08 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,6 @@ HumanB::HumanB(std::string name)
 HumanB::~HumanB(void)
 {
 }
-
-/*
-Using reference here makes sure that the weapon isn't null, so that it saves me lines so I don't have
-to check if the input null
-*/
 
 void HumanB::setWeapon(Weapon &weapon)
 {
