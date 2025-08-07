@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/03 19:57:39 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/07 21:57:09 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/07 23:04:08 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void ClapTrap::run_ClapTrap(ClapTrap &player)
 	{
 		printStatus(player);
 		std::cout << "\n";
-		std::cout << "ATTACK, REPAIR or CHANGE (player)?\n";
+		std::cout << "ATTACK, REPAIR, CHANGE (player) or EXIT?\n";
 		std::getline(std::cin, action);
 		std::cout << "\n";
 		if (action == "ATTACK")
@@ -62,7 +62,7 @@ void ClapTrap::run_ClapTrap(ClapTrap &player)
 			else
 				this->beRepaired(1);
 		}
-		else if (action == "CHANGE")
+		else if (action == "CHANGE" || action == "EXIT")
 			break;
 		else
 			std::cout << "Write ATTACK or REPAIR.\n";
@@ -75,16 +75,18 @@ int main(void)
 	ClapTrap Player2("Two");
 	std::string current;
 
-	std::cout << "Player 1 or 2?\n";
 	while (1)
 	{
+		std::cout << "Player 1 or 2?\n";
 		std::getline(std::cin, current);
 		if (current == "1")
 			Player1.run_ClapTrap(Player2);
 		else if (current == "2")
 			Player2.run_ClapTrap(Player1);
+		else if (current == "EXIT")
+			return (0);
 		else
-			std::cout << "\nWrite 1 or 2\n";
+			std::cout << "\nWrite 1, 2 or EXIT\n";
 	}
 	return (0);
 }
