@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/03 19:57:57 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/05 20:33:15 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/07 22:03:20 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,18 @@
 
 class ClapTrap
 {
-	private:
+	protected:
 		std::string name;
 		int Hit_pts;
 		int Energy_pts;
 		int Attack_dmg;
 
 	public:
+		ClapTrap();
 		ClapTrap(const std::string name);
-		~ClapTrap();
+		virtual ~ClapTrap();
 		ClapTrap(const ClapTrap &player);
-		void attack(const std::string& target);
+		virtual void attack(const std::string& target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
 		std::string getName();

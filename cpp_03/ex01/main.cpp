@@ -6,36 +6,17 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/03 19:57:39 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/04 20:23:14 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/07 22:03:54 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ScavTrap.hpp"
 #include "ClapTrap.hpp"
 
-void ClapTrap::printStatus(ClapTrap &player)
-{
-	std::cout << "\n=================================================================\n"
-                  << "|             Current Status of Player1 and Player2             |\n"
-                  << "=================================================================\n"
-				  << "|" << std::setw(15) << std::left << " "
-                  << "|" << std::setw(15) << std::left << "Hit points"
-                  << "|" << std::setw(15) << std::left << "Energy points"
-                  << "|" << std::setw(15) << std::left << "Attack damage  |\n"
-                  << "-----------------------------------------------------------------\n"
-                  << "|" << std::setw(15) << std::left << this->name
-                  << "|" << std::setw(15) << std::left << this->Hit_pts
-                  << "|" << std::setw(15) << std::left << this->Energy_pts
-                  << "|" << std::setw(15) << std::left << this->Attack_dmg << "|\n"
-                  << "|" << std::setw(15) << std::left << player.name
-                  << "|" << std::setw(15) << std::left << player.Hit_pts
-                  << "|" << std::setw(15) << std::left << player.Energy_pts
-                  << "|" << std::setw(15) << std::left << player.Attack_dmg << "|\n";
-        std::cout << "-----------------------------------------------------------------\n\n";
-}
-
-void ClapTrap::run_ClapTrap(ClapTrap &player)
+void ScavTrap::run_ScavTrap(ScavTrap &player)
 {
 	std::string action;
+
 	while (1)
 	{
 		printStatus(player);
@@ -64,6 +45,8 @@ void ClapTrap::run_ClapTrap(ClapTrap &player)
 		}
 		else if (action == "CHANGE")
 			break;
+		else if (action == "GUARD")
+			this->guardGate();
 		else
 			std::cout << "Write ATTACK or REPAIR.\n";
 	}
@@ -71,20 +54,22 @@ void ClapTrap::run_ClapTrap(ClapTrap &player)
 
 int main(void)
 {
-	ClapTrap Player1("One");
-	ClapTrap Player2("Two");
+	ScavTrap Player1("One");
+	ScavTrap Player2("Two");
 	std::string current;
 
-	std::cout << "Player 1 or 2?\n";
+	std::cout << "Player 1, 2 or EXIT?\n";
 	while (1)
 	{
 		std::getline(std::cin, current);
 		if (current == "1")
-			Player1.run_ClapTrap(Player2);
+			Player1.run_ScavTrap(Player2);
 		else if (current == "2")
-			Player2.run_ClapTrap(Player1);
+			Player2.run_ScavTrap(Player1);
+		else if (current == "EXIT")
+			return (0);
 		else
-			std::cout << "\nWrite 1 or 2\n";
+			std::cout << "\nWrite 1, 2 or EXIT\n";
 	}
 	return (0);
 }

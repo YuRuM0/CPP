@@ -13,6 +13,11 @@
 
 #include "ClapTrap.hpp"
 
+ClapTrap::ClapTrap(): name(""), Hit_pts(0), Energy_pts(0), Attack_dmg(0)
+{
+	std::cout << "Constructor called!\n";
+}
+
 ClapTrap::ClapTrap(std::string name): name(name), Hit_pts(10), Energy_pts(10), Attack_dmg(0)
 {
 	std::cout << "Constructor called!\n";

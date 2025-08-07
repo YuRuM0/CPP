@@ -6,7 +6,7 @@
 #    By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/03 19:55:59 by yulpark           #+#    #+#              #
-#    Updated: 2025/08/04 20:26:23 by yulpark          ###   ########.fr        #
+#    Updated: 2025/08/07 20:44:26 by yulpark          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ GREEN   = \033[32m
 RESET   = \033[0m
 
 CPP = c++
-CPP_FLAGS = -Wall -Wextra -Werror
+CPP_FLAGS = -Wall -Wextra -Werror -std=c++17
 CPP_FLAGS += -fsanitize=address
 
 SRCS = main.cpp ClapTrap.cpp
