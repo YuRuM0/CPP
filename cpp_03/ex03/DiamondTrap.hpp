@@ -6,7 +6,25 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 23:16:35 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/07 23:16:36 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/08 16:30:27 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
+
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
+
+class DiamondTrap: public FragTrap, public ScavTrap
+{
+	private:
+		std::string name;
+	public:
+		DiamondTrap();
+		DiamondTrap(std::string name);
+		DiamondTrap(DiamondTrap &player);
+		~DiamondTrap();
+		void attack(const std::string& target);
+		void whoAmI();
+		void run_DiamondTrap(DiamondTrap &player);
+};

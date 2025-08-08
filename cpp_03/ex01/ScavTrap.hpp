@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 20:26:46 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/07 21:58:46 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/08 21:55:44 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ class ScavTrap: public ClapTrap
 		ScavTrap();
 		ScavTrap(std::string name);
 		ScavTrap(ScavTrap &player);
+		ScavTrap& operator=(const ScavTrap& obj);
 		~ScavTrap();
 		void guardGate();
 		void attack(const std::string& target) override;

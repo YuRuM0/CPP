@@ -24,6 +24,18 @@ ClapTrap::ClapTrap(const ClapTrap &player)
 	*this = player;
 }
 
+ClapTrap& ClapTrap::operator=(const ClapTrap& obj)
+{
+	if (this != &obj)
+	{
+		this->name = obj.name;
+		this->Attack_dmg = obj.Attack_dmg;
+		this->Energy_pts = obj.Energy_pts;
+		this->Hit_pts = obj.Hit_pts;
+	}
+	return (*this);
+}
+
 ClapTrap::~ClapTrap()
 {
 	std::cout << "Destructor called!\n";

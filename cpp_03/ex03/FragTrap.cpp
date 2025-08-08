@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 20:26:52 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/07 23:11:12 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/08 21:58:48 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,15 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
 FragTrap::FragTrap(FragTrap &player) : ClapTrap(player.getName())
 {
 	*this = player;
+}
+
+FragTrap& FragTrap::operator=(const FragTrap& obj)
+{
+	if (this != &obj)
+	{
+		ClapTrap::operator=(obj);
+	}
+	return (*this);
 }
 
 /*

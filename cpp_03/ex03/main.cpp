@@ -6,13 +6,13 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/03 19:57:39 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/07 23:15:05 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/08 16:44:27 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
-void FragTrap::run_FragTrap(FragTrap &player)
+void DiamondTrap::run_DiamondTrap(DiamondTrap &player)
 {
 	std::string action;
 
@@ -20,7 +20,7 @@ void FragTrap::run_FragTrap(FragTrap &player)
 	{
 		printStatus(player);
 		std::cout << "\n";
-		std::cout << "ATTACK, REPAIR, CHANGE (player), HIGH5 or EXIT?\n";
+		std::cout << "ATTACK, REPAIR, CHANGE (player), NAME or EXIT?\n";
 		std::getline(std::cin, action);
 		std::cout << "\n";
 		if (action == "ATTACK")
@@ -31,9 +31,9 @@ void FragTrap::run_FragTrap(FragTrap &player)
 				player.takeDamage(this->Attack_dmg);
 			}
 			if (player.Hit_pts < 30)
-				std::cout << "Player " << player.name << " has less than 30 Hit point, you must repair to continue!\n";
+				std::cout << "Player " << player.name << " has low Hit points, you must repair to continue!\n";
 			if (Energy_pts < 30)
-				std::cout << "Player " << name << " has less than 30 Energy point, you cannot attack!\n";
+				std::cout << "Player " << name << " has low Energy points, you cannot attack!\n";
 		}
 		else if (action == "REPAIR")
 		{
@@ -44,17 +44,17 @@ void FragTrap::run_FragTrap(FragTrap &player)
 		}
 		else if (action == "CHANGE" || action == "EXIT")
 			break;
-		else if (action == "HIGH5")
-			this->highFivesGuys();
+		else if (action == "NAME")
+			this->whoAmI();
 		else
-			std::cout << "Write ATTACK, REPAIR, CHANGE (player), HIGH5 or EXIT.\n";
+			std::cout << "Write ATTACK, REPAIR, CHANGE (player), NAME or EXIT.\n";
 	}
 }
 
 int main(void)
 {
-	FragTrap Player1("One");
-	FragTrap Player2("Two");
+	DiamondTrap Player1("One");
+	DiamondTrap Player2("Two");
 	std::string current;
 
 	while (1)
@@ -62,9 +62,9 @@ int main(void)
 		std::cout << "Player 1, 2 or EXIT?\n";
 		std::getline(std::cin, current);
 		if (current == "1")
-			Player1.run_FragTrap(Player2);
+			Player1.run_DiamondTrap(Player2);
 		else if (current == "2")
-			Player2.run_FragTrap(Player1);
+			Player2.run_DiamondTrap(Player1);
 		else if (current == "EXIT")
 			return (0);
 		else

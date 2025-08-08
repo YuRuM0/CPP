@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 20:26:52 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/07 21:51:39 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/08 21:55:29 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,15 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 ScavTrap::ScavTrap(ScavTrap &player) : ClapTrap(player.getName())
 {
 	*this = player;
+}
+
+ScavTrap& ScavTrap::operator=(const ScavTrap& obj)
+{
+	if (this != &obj)
+	{
+		ClapTrap::operator=(obj);
+	}
+	return (*this);
 }
 
 /*
