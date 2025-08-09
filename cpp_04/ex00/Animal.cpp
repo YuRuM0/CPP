@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/09 16:01:57 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/09 17:00:28 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/09 18:27:06 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,12 @@ Animal::~Animal()
 	std::cout << "Animal: Destructor called\n";
 }
 
-std::string Animal::getType()
+std::string Animal::getType() const
 {
 	return this->type;
 }
 
-void Animal::makeSound()
+void Animal::makeSound() const
 {
 	std::cout << "Animal Sound\n";
 }

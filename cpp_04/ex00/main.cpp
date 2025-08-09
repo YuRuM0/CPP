@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/09 15:55:54 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/09 16:46:57 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/09 21:43:49 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,7 @@ int main()
 	meta->makeSound();
 	//
 	delete meta;
+	delete j;
+	delete i;
 	return 0;
 }

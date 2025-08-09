@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.hpp                                       :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/09 16:02:44 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/09 19:50:51 by yulpark          ###   ########.fr       */
+/*   Created: 2025/08/09 19:47:20 by yulpark           #+#    #+#             */
+/*   Updated: 2025/08/09 19:51:01 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-#include "WrongAnimal.hpp"
+#include <iostream>
 
-class WrongCat :  public WrongAnimal
+class WrongAnimal
 {
-	private:
+	protected:
 		std::string type;
 	public:
-		WrongCat();
-		WrongCat(const WrongCat &obj);
-		WrongCat &operator=(const WrongCat &obj);
-		~WrongCat();
-
-		void makeSound() override;
+		WrongAnimal();
+		WrongAnimal(const WrongAnimal &obj);
+		WrongAnimal &operator=(const WrongAnimal &obj);
+		virtual ~WrongAnimal();
+		std::string getType();
+		virtual void makeSound();
 };

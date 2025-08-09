@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/09 15:56:15 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/09 17:00:15 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/09 21:34:42 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ class Animal
 		Animal(const Animal &obj);
 		Animal &operator=(const Animal &obj);
 		virtual ~Animal();
-		virtual std::string getType();
-		virtual void makeSound();
+		virtual std::string getType() const;
+		virtual void makeSound() const;
 };

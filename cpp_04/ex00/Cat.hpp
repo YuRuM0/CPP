@@ -6,14 +6,14 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/09 15:58:19 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/09 17:00:36 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/09 21:40:06 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include "Animal.hpp"
 
-class Cat :  virtual public Animal
+class Cat : public Animal
 {
 	private:
 		std::string type;
@@ -23,6 +23,6 @@ class Cat :  virtual public Animal
 		Cat(const Cat &obj);
 		Cat &operator=(const Cat &obj);
 		~Cat();
-		std::string getType() override;
-		void makeSound() override;
+		//std::string getType() const override;
+		void makeSound() const override;
 };

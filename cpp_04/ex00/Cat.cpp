@@ -6,18 +6,18 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/09 15:58:22 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/09 16:57:17 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/09 21:40:03 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat() : type("Cat")
+Cat::Cat(): type("Cat")
 {
 	std::cout << "Cat: Default Constructor called\n";
 }
 
-Cat::Cat(const Cat &obj)
+Cat::Cat(const Cat &obj): type("Cat")
 {
 	std::cout << "Cat: Copy Constructor called\n";
 	*this = obj;
@@ -35,12 +35,12 @@ Cat::~Cat()
 	std::cout << "Cat: Destructor called\n";
 }
 
-std::string Cat::getType()
-{
-	return this->type;
-}
+//std::string Cat::getType() const
+//{
+//	return this->type;
+//}
 
-void Cat::makeSound()
+void Cat::makeSound() const
 {
-	std::cout << "Meow\n";
+	std::cout << "Niau\n";
 }
