@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 20:26:52 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/08 21:57:36 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/09 15:44:38 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 ScavTrap::ScavTrap(): ClapTrap()
 {
-	std::cout << "ScavTrap constructor called\n";
+	std::cout << "ScavTrap: Default Constructor called\n";
 }
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
-	std::cout << "ScavTrap constructor called\n";
+	std::cout << "ScavTrap: Constructor called\n";
 	this->setName(name);
 	this->setEnergy(50);
 	this->setHit(100);
@@ -46,7 +46,7 @@ reverse order in which they appear in the class declaration.
 */
 ScavTrap::~ScavTrap()
 {
-	std::cout << "ScavTrap destructor called\n";
+	std::cout << "ScavTrap: Destructor called\n";
 }
 
 void ScavTrap::guardGate()

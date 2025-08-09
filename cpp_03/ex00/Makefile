@@ -6,17 +6,17 @@
 #    By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/03 19:55:59 by yulpark           #+#    #+#              #
-#    Updated: 2025/08/04 20:44:21 by yulpark          ###   ########.fr        #
+#    Updated: 2025/08/09 15:52:52 by yulpark          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Aaaaand...OPEN!
+NAME = ClapTrap
 
 GREEN   = \033[32m
 RESET   = \033[0m
 
 CPP = c++
-CPP_FLAGS = -Wall -Wextra -Werror
+CPP_FLAGS = -Wall -Wextra -Werror -std=c++17
 CPP_FLAGS += -fsanitize=address
 
 SRCS = main.cpp ClapTrap.cpp
@@ -27,12 +27,12 @@ OBJS = $(addprefix $(OBJS_DIR), $(OBJS_O))
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CPP) $(CPPFLAGS) $(OBJS) -o $(NAME)
+	@$(CPP) $(CPPFLAGS) $(OBJS) -o $(NAME)
 	@echo "$(GREEN)Done!!$(RESET)\n"
 
-$(OBJS_DIR)%.o: %.cpp
+$(OBJS_DIR)%.o: %.cpp Makefile
 	@mkdir -p $(dir $@)
-	$(CPP) $(CPPFLAGS) -c $< -o $@
+	@$(CPP) $(CPPFLAGS) -c $< -o $@
 
 clean:
 	@rm -fr $(OBJS_DIR)

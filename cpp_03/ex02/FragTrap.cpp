@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 20:26:52 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/08 21:58:38 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/09 15:41:51 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 FragTrap::FragTrap(): ClapTrap()
 {
-	std::cout << "FragTrap constructor called\n";
+	std::cout << "FragTrap: Default constructor called\n";
 }
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name)
 {
-	std::cout << "FragTrap constructor called\n";
+	std::cout << "FragTrap: Constructor called\n";
 	this->setName(name);
 	this->setEnergy(100);
 	this->setHit(100);
@@ -46,7 +46,7 @@ reverse order in which they appear in the class declaration.
 */
 FragTrap::~FragTrap()
 {
-	std::cout << "FragTrap destructor called\n";
+	std::cout << "FragTrap: destructor called\n";
 }
 
 void FragTrap::highFivesGuys()

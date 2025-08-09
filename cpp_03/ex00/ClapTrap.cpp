@@ -1,4 +1,3 @@
-#include "ClapTrap.hpp"
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -7,11 +6,16 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/03 19:57:54 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/03 19:57:55 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/09 15:42:23 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+
+ClapTrap::ClapTrap()
+{
+	std::cout << "Default constructor called\n";
+}
 
 ClapTrap::ClapTrap(std::string name): name(name), Hit_pts(10), Energy_pts(10), Attack_dmg(0)
 {

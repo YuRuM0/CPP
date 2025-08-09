@@ -1,4 +1,3 @@
-#include "ClapTrap.hpp"
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -7,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/03 19:57:54 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/03 19:57:55 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/09 15:45:13 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +14,17 @@
 
 ClapTrap::ClapTrap(): name(""), Hit_pts(0), Energy_pts(0), Attack_dmg(0)
 {
-	std::cout << "Constructor called!\n";
+	std::cout << "ClapTrap: Default Constructor called!\n";
 }
 
 ClapTrap::ClapTrap(std::string name): name(name), Hit_pts(10), Energy_pts(10), Attack_dmg(0)
 {
-	std::cout << "Constructor called!\n";
+	std::cout << "ClapTrap: Constructor called!\n";
 }
 
 ClapTrap::ClapTrap(const ClapTrap &player)
 {
-	std::cout << "Copy constructor called!\n";
+	std::cout << "ClapTrap: Copy constructor called!\n";
 	*this = player;
 }
 
@@ -43,7 +42,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& obj)
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "Destructor called!\n";
+	std::cout << "ClapTrap: Destructor called!\n";
 }
 
 std::string ClapTrap::getName()

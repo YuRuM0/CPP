@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 23:16:47 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/08 21:49:10 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/09 15:43:55 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 DiamondTrap::DiamondTrap(): ScavTrap(), FragTrap()
 {
-	std::cout << "DiamondTrap constructor called\n";
+	std::cout << "DiamondTrap: Default Constructor called\n";
 }
 
 DiamondTrap::DiamondTrap(std::string param)
-: ClapTrap(param + "_clap_name"), FragTrap(param), ScavTrap(param), name(param)
+: ClapTrap(param + "_clap_name"), ScavTrap(), FragTrap(), name(param)
 {
-	std::cout << "DiamondTrap constructor called\n";
+	std::cout << "DiamondTrap: Constructor called\n";
 	this->Hit_pts = FragTrap::Hit_pts;
 	this->Energy_pts = ScavTrap::Energy_pts;
 	this->Attack_dmg = FragTrap::Attack_dmg;
@@ -33,13 +33,22 @@ DiamondTrap::DiamondTrap(DiamondTrap &player)
 	*this = player;
 }
 
+DiamondTrap &DiamondTrap::operator=(const DiamondTrap &obj)
+{
+	if (this != &obj)
+	{
+		ClapTrap::operator=(obj);
+	}
+	return (*this);
+}
+
 /*
 Destructors for nonstatic member objects are called in the
 reverse order in which they appear in the class declaration.
 */
 DiamondTrap::~DiamondTrap()
 {
-	std::cout << "DiamondTrap destructor called\n";
+	std::cout << "DiamondTrap: Destructor called\n";
 }
 
 void DiamondTrap::attack(const std::string &target)

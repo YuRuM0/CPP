@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 20:26:52 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/08 21:55:29 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/09 15:38:46 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 ScavTrap::ScavTrap(): ClapTrap()
 {
-	std::cout << "ScavTrap constructor called\n";
+	std::cout << "ScavTrap: Default constructor called\n";
 }
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
-	std::cout << "ScavTrap constructor called\n";
+	std::cout << "ScavTrap: Constructor called\n";
 	this->setName(name);
 	this->setEnergy(50);
 	this->setHit(100);
@@ -46,17 +46,17 @@ reverse order in which they appear in the class declaration.
 */
 ScavTrap::~ScavTrap()
 {
-	std::cout << "ScavTrap destructor called\n";
+	std::cout << "ScavTrap: destructor called\n";
 }
 
 void ScavTrap::guardGate()
 {
 	//activate gate keeper mode
-	std::cout << "Gate keeper mode activated";
+	std::cout << "ScavTrap: Gate keeper mode activated";
 }
 
 void ScavTrap::attack(const std::string &target)
 {
-	std::cout << "ScavTrap " << name << " attacks " << target << ", causing " << Attack_dmg << " points of damage!\n";
+	std::cout << "ScavTrap: " << name << " attacks " << target << ", causing " << Attack_dmg << " points of damage!\n";
 	Energy_pts -= 1;
 }
