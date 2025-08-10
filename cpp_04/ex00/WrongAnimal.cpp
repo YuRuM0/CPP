@@ -11,7 +11,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-WrongAnimal::WrongAnimal()
+WrongAnimal::WrongAnimal() : type("")
 {
 	std::cout << "WrongAnimal: Default Constructor called\n";
 }
@@ -34,12 +34,12 @@ WrongAnimal::~WrongAnimal()
 	std::cout << "WrongAnimal: Destructor called\n";
 }
 
-std::string WrongAnimal::getType()
+std::string WrongAnimal::getType() const
 {
 	return this->type;
 }
 
-void WrongAnimal::makeSound()
+void WrongAnimal::makeSound() const
 {
 	std::cout << "Wrong Animal sound....\n";
 }

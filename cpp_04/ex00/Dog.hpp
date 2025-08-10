@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/09 16:00:47 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/09 21:40:13 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/10 14:55:10 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 class Dog : public Animal
 {
-	private:
-		std::string type;
 	public:
 		Dog();
 		Dog(const Dog &obj);

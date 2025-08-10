@@ -6,7 +6,7 @@
 #    By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/09 15:55:30 by yulpark           #+#    #+#              #
-#    Updated: 2025/08/09 16:01:47 by yulpark          ###   ########.fr        #
+#    Updated: 2025/08/10 14:58:09 by yulpark          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,9 @@ RESET   = \033[0m
 
 CPP = c++
 CPP_FLAGS = -Wall -Wextra -Werror -std=c++17
-CPP_FLAGS += -fsanitize=address
+#CPP_FLAGS += -fsanitize=address
 
-SRCS = main.cpp Animal.cpp Cat.cpp Dog.cpp
+SRCS = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
 OBJS_DIR = objs/
 OBJS_O = $(SRCS:.cpp=.o)
 OBJS = $(addprefix $(OBJS_DIR), $(OBJS_O))

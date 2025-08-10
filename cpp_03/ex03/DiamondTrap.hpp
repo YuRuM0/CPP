@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 23:16:35 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/09 15:22:12 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/10 14:15:36 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,5 @@ class DiamondTrap: public FragTrap, public ScavTrap
 		void attack(const std::string& target);
 		void whoAmI();
 		void run_DiamondTrap(DiamondTrap &player);
+		void printStatus(DiamondTrap &player);
 };

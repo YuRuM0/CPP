@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/09 16:01:57 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/09 18:27:06 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/10 14:25:32 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ Animal::Animal(const Animal &obj) :  type("")
 
 Animal &Animal::operator=(const Animal &obj)
 {
-	// TODO: insert return statement here
 	if (this != &obj)
 		this->type = obj.type;
 	return (*this);

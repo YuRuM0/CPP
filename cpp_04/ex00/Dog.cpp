@@ -6,13 +6,13 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/09 15:58:06 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/09 21:40:17 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/10 14:55:03 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
-Dog::Dog(): Animal(), type("Dong")
+Dog::Dog(): Animal()
 {
 	this->type = "Dog";
 	std::cout << "Dog: Default Constructor called\n";

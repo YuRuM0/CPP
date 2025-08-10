@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/03 19:57:57 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/08 21:54:05 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/10 14:19:48 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class ClapTrap
 		virtual ~ClapTrap();
 		ClapTrap(const ClapTrap &player);
 		ClapTrap& operator=(const ClapTrap& obj);
-		
+
 		virtual void attack(const std::string& target);
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
@@ -39,7 +39,7 @@ class ClapTrap
 		int getHit();
 		int getEnergy();
 		void run_ClapTrap(ClapTrap &player);
-		void printStatus(ClapTrap &player);
+		//void printStatus(ClapTrap &player);
 		void setName(std::string name);
 		void setHit(int points);
 		void setEnergy(int points);

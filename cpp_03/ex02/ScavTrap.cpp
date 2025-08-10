@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 20:26:52 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/09 15:43:09 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/10 17:32:34 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 ScavTrap::ScavTrap(): ClapTrap()
 {
 	std::cout << "ScavTrap: Default Constructor called\n";
+	this->setEnergy(50);
+	this->setHit(100);
+	this->setDamage(20);
 }
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
@@ -26,8 +29,9 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 	this->setDamage(20);
 }
 
-ScavTrap::ScavTrap(ScavTrap &player) : ClapTrap(player.getName())
+ScavTrap::ScavTrap(ScavTrap &player) : ClapTrap(player)
 {
+	std::cout << "ScavTrap: Copy Constructor called\n";
 	*this = player;
 }
 

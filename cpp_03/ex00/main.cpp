@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/03 19:57:39 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/07 23:04:08 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/10 17:18:54 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ int main(void)
 
 	while (1)
 	{
-		std::cout << "Player 1 or 2?\n";
+		std::cout << "Player 1, 2 or EXIT\n";
 		std::getline(std::cin, current);
 		if (current == "1")
 			Player1.run_ClapTrap(Player2);

@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/09 15:58:19 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/09 21:40:06 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/10 14:48:41 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,6 @@
 
 class Cat : public Animal
 {
-	private:
-		std::string type;
-
 	public:
 		Cat();
 		Cat(const Cat &obj);

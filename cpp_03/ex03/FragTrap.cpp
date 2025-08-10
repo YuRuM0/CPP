@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 20:26:52 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/09 15:44:18 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/10 17:33:28 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 FragTrap::FragTrap(): ClapTrap()
 {
 	std::cout << "FragTrap: Default Constructor called\n";
+	this->setEnergy(100);
+	this->setHit(100);
+	this->setDamage(30);
 }
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name)
@@ -26,8 +29,9 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
 	this->setDamage(30);
 }
 
-FragTrap::FragTrap(FragTrap &player) : ClapTrap(player.getName())
+FragTrap::FragTrap(FragTrap &player) : ClapTrap(player)
 {
+	std::cout << "FragTrap: Copy Constructor called\n";
 	*this = player;
 }
 
