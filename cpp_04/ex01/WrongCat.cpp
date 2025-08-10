@@ -1,47 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/09 15:58:06 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/10 21:42:36 by yulpark          ###   ########.fr       */
+/*   Created: 2025/08/09 16:02:24 by yulpark           #+#    #+#             */
+/*   Updated: 2025/08/10 15:03:10 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "WrongCat.hpp"
 
-Dog::Dog(): Animal()
+WrongCat::WrongCat() : WrongAnimal()
 {
-	this->type = "Dog";
-	std::cout << "Dog: Default Constructor called\n";
+	std::cout << "WrongCat: Default constructor called\n";
+	type = "WrongCat";
 }
 
-Dog::Dog(const Dog &obj) : Animal()
+WrongCat::WrongCat(const WrongCat &obj)
 {
-	std::cout << "Dog: Constructor called\n";
+	std::cout << "Wrong Cat: Constructor called\n";
 	*this = obj;
 }
 
-Dog &Dog::operator=(const Dog &obj)
+WrongCat &WrongCat::operator=(const WrongCat &obj)
 {
 	if (this != &obj)
 		this->type = obj.type;
 	return (*this);
 }
 
-Dog::~Dog()
+WrongCat::~WrongCat()
 {
-	std::cout << "Dog: Destructor called\n";
+	std::cout << "WrongCat: Destructor called\n";
 }
 
-//std::string Dog::getType() const
-//{
-//	return this->type;
-//}
-
-void Dog::makeSound() const
+void WrongCat::makeSound() const
 {
-	std::cout << "Woof\n";
+	std::cout << "Zzzzzzzzzz......\n";
 }

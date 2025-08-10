@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/09 15:58:06 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/10 21:42:36 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/10 21:42:44 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,14 @@
 Dog::Dog(): Animal()
 {
 	this->type = "Dog";
+	ideas = new Brain();
 	std::cout << "Dog: Default Constructor called\n";
 }
 
 Dog::Dog(const Dog &obj) : Animal()
 {
 	std::cout << "Dog: Constructor called\n";
+	ideas = new Brain();
 	*this = obj;
 }
 
@@ -33,6 +35,7 @@ Dog &Dog::operator=(const Dog &obj)
 
 Dog::~Dog()
 {
+	delete[] ideas;
 	std::cout << "Dog: Destructor called\n";
 }
 
