@@ -1,48 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/09 15:58:22 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/11 18:26:30 by yulpark          ###   ########.fr       */
+/*   Created: 2025/08/09 16:01:57 by yulpark           #+#    #+#             */
+/*   Updated: 2025/08/11 19:41:16 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "Animal.hpp"
 
-Cat::Cat() : Animal()
+AAnimal::AAnimal() : type("")
 {
-	type = "cat";
-	std::cout << "Cat: Default Constructor called\n";
+	std::cout << "AAnimal: Constructor called\n";
 }
 
-Cat::Cat(const Cat &obj) : Animal()
+AAnimal::AAnimal(const AAnimal &obj) :  type("")
 {
-	type = "Cat";
-	std::cout << "Cat: Copy Constructor called\n";
+	std::cout << "AAnimal: Copy constructor called\n";
 	*this = obj;
 }
 
-Cat &Cat::operator=(const Cat &obj)
+AAnimal &AAnimal::operator=(const AAnimal &obj)
 {
 	if (this != &obj)
 		this->type = obj.type;
 	return (*this);
 }
 
-Cat::~Cat()
+AAnimal::~AAnimal()
 {
-	std::cout << "Cat: Destructor called\n";
+	std::cout << "AAnimal: Destructor called\n";
 }
 
-//std::string Cat::getType() const
-//{
-//	return this->type;
-//}
-
-void Cat::makeSound() const
+std::string AAnimal::getType() const
 {
-	std::cout << "Meow\n";
+	return this->type;
+}
+
+void AAnimal::makeSound() const
+{
+	std::cout << "Animal Sound\n";
 }

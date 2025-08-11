@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/09 15:58:19 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/11 18:39:02 by yulpark          ###   ########.fr       */
+/*   Created: 2025/08/11 21:37:11 by yulpark           #+#    #+#             */
+/*   Updated: 2025/08/11 21:40:26 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-#include "Animal.hpp"
-#include "Brain.hpp"
+#include <iostream>
+#include <string>
 
-class Cat : public Animal
+class Cure
 {
 	private:
-		Brain* ideas;
-
+		std::string type;
 	public:
-		Cat();
-		Cat(const Cat &obj);
-		Cat &operator=(const Cat &obj);
-		~Cat();
-		//std::string getType() const override;
-		void makeSound() const override;
-		Brain &getBrain();
+		Cure();
+		~Cure();
 };

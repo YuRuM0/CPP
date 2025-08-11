@@ -1,30 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/09 15:58:19 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/11 18:39:02 by yulpark          ###   ########.fr       */
+/*   Created: 2025/08/11 21:37:16 by yulpark           #+#    #+#             */
+/*   Updated: 2025/08/11 21:38:44 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-#include "Animal.hpp"
-#include "Brain.hpp"
-
-class Cat : public Animal
-{
-	private:
-		Brain* ideas;
-
-	public:
-		Cat();
-		Cat(const Cat &obj);
-		Cat &operator=(const Cat &obj);
-		~Cat();
-		//std::string getType() const override;
-		void makeSound() const override;
-		Brain &getBrain();
-};
+#include <iostream>
+#include <string>

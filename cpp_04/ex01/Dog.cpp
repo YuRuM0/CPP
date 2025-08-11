@@ -6,11 +6,12 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/09 15:58:06 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/10 21:42:44 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/11 19:01:23 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
+#include "Brain.hpp"
 
 Dog::Dog(): Animal()
 {
@@ -35,7 +36,7 @@ Dog &Dog::operator=(const Dog &obj)
 
 Dog::~Dog()
 {
-	delete[] ideas;
+	delete ideas;
 	std::cout << "Dog: Destructor called\n";
 }
 
@@ -47,4 +48,9 @@ Dog::~Dog()
 void Dog::makeSound() const
 {
 	std::cout << "Woof\n";
+}
+
+Brain &Dog::getBrain()
+{
+	return (*ideas);
 }

@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/09 15:58:19 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/11 18:39:02 by yulpark          ###   ########.fr       */
+/*   Created: 2025/08/11 21:31:02 by yulpark           #+#    #+#             */
+/*   Updated: 2025/08/11 21:37:45 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include "Animal.hpp"
-#include "Brain.hpp"
+#include <iostream>
+#include <string.h>
+#include "ICharacter.hpp"
 
-class Cat : public Animal
+class AMateria
 {
-	private:
-		Brain* ideas;
+	protected:
 
 	public:
-		Cat();
-		Cat(const Cat &obj);
-		Cat &operator=(const Cat &obj);
-		~Cat();
-		//std::string getType() const override;
-		void makeSound() const override;
-		Brain &getBrain();
-};
+		AMateria(std::string const & type);
+		std::string const & getType() const;
+		virtual AMateria* clone() const = 0;  //interface
+		virtual void use(ICharacter& target);
+}

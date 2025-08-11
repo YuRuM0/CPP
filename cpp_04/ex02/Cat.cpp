@@ -6,20 +6,20 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/09 15:58:22 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/11 19:01:16 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/11 19:36:21 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat() : Animal()
+Cat::Cat() : AAnimal()
 {
 	type = "cat";
 	ideas = new Brain();
 	std::cout << "Cat: Default Constructor called\n";
 }
 
-Cat::Cat(const Cat &obj) : Animal()
+Cat::Cat(const Cat &obj) : AAnimal()
 {
 	type = "Cat";
 	ideas = new Brain();

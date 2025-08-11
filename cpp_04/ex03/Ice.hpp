@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/09 15:58:19 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/11 18:39:02 by yulpark          ###   ########.fr       */
+/*   Created: 2025/08/11 21:37:14 by yulpark           #+#    #+#             */
+/*   Updated: 2025/08/11 21:40:14 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-#include "Animal.hpp"
-#include "Brain.hpp"
+#include <iostream>
+#include <string>
 
-class Cat : public Animal
+class Ice
 {
 	private:
-		Brain* ideas;
-
+		std::string type;
 	public:
-		Cat();
-		Cat(const Cat &obj);
-		Cat &operator=(const Cat &obj);
-		~Cat();
-		//std::string getType() const override;
-		void makeSound() const override;
-		Brain &getBrain();
+		Ice();
+		~Ice();
 };
