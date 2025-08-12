@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 23:16:47 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/10 17:33:16 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/12 21:59:21 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,18 @@ DiamondTrap::DiamondTrap()
 {
 	std::cout << "DiamondTrap: Default Constructor called\n";
 	this->name = ClapTrap::name;
-	this->Hit_pts = FragTrap::Hit_pts;
-	this->Energy_pts = ScavTrap::Energy_pts;
-	this->Attack_dmg = FragTrap::Attack_dmg;
+	this->Hit_pts = FragTrap::FRAG_HIT;
+	this->Energy_pts = ScavTrap::SCAV_ENG;
+	this->Attack_dmg = FragTrap::FRAG_ATTK;
 }
 
 DiamondTrap::DiamondTrap(std::string param)
 : ClapTrap(param + "_clap_name"), ScavTrap(), FragTrap(), name(param)
 {
 	std::cout << "DiamondTrap: Constructor called\n";
-	//std::cout << "Diamond Constructor: " << FragTrap::Hit_pts << std::endl;
-	//std::cout << "Diamond Test: " << ScavTrap::Energy_pts << std::endl;
-	this->Attack_dmg = 30;
-	//std::cout << "Diamond Constructor: " << Hit_pts << std::endl;
+	this->Hit_pts = FragTrap::FRAG_HIT;
+	this->Energy_pts = ScavTrap::SCAV_ENG;
+	this->Attack_dmg = FragTrap::FRAG_ATTK;
 }
 
 
@@ -91,4 +90,43 @@ void DiamondTrap::printStatus(DiamondTrap &player)
                   << "|" << std::setw(15) << std::left << player.Energy_pts
                   << "|" << std::setw(15) << std::left << player.Attack_dmg << "|\n";
         std::cout << "-----------------------------------------------------------------\n\n";
+}
+
+void DiamondTrap::run_DiamondTrap(DiamondTrap &player)
+{
+	std::string action;
+
+	while (1)
+	{
+		printStatus(player);
+		std::cout << "\n";
+		std::cout << "ATTACK, REPAIR, CHANGE (player), NAME or EXIT?\n";
+		std::getline(std::cin, action);
+		std::cout << "\n";
+		if (action == "ATTACK")
+		{
+			if (player.Hit_pts - player.Attack_dmg > 0 && Energy_pts > 0)
+			{
+				this->attack(player.name);
+				player.takeDamage(this->Attack_dmg);
+			}
+			if (player.Hit_pts < 30)
+				std::cout << "Player " << player.name << " has low Hit points, you must repair to continue!\n";
+			if (Energy_pts < 30)
+				std::cout << "Player " << name << " has low Energy points, you cannot attack!\n";
+		}
+		else if (action == "REPAIR")
+		{
+			if (Energy_pts < 1)
+				std::cout << "Energy point low, cannot repair!\n";
+			else
+				this->beRepaired(1);
+		}
+		else if (action == "CHANGE" || action == "EXIT")
+			break;
+		else if (action == "NAME")
+			this->whoAmI();
+		else
+			std::cout << "Write ATTACK, REPAIR, CHANGE (player), NAME or EXIT.\n";
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 20:26:46 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/08 21:59:30 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/12 21:59:02 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,8 @@ class FragTrap: virtual public ClapTrap
 		void highFivesGuys();
 		void attack(const std::string& target) override;
 		void run_FragTrap(FragTrap &player);
+
+		const static int FRAG_HIT = 100;
+		const static int FRAG_ENG = 100;
+		const static int FRAG_ATTK = 30;
 };

@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 20:26:46 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/08 21:55:53 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/12 21:56:43 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,8 @@ class ScavTrap: virtual public ClapTrap
 		void guardGate();
 		void attack(const std::string& target) override;
 		void run_ScavTrap(ScavTrap &player);
+
+		const static int SCAV_HIT = 100;
+		const static int SCAV_ENG = 50;
+		const static int SCAV_ATTK = 20;
 };
