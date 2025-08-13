@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/09 16:01:57 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/11 19:41:16 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/13 18:47:03 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,9 @@ AAnimal::AAnimal() : type("")
 	std::cout << "AAnimal: Constructor called\n";
 }
 
-AAnimal::AAnimal(const AAnimal &obj) :  type("")
+AAnimal::AAnimal(const AAnimal &obj) : type(obj.type)
 {
 	std::cout << "AAnimal: Copy constructor called\n";
-	*this = obj;
 }
 
 AAnimal &AAnimal::operator=(const AAnimal &obj)

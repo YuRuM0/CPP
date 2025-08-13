@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/09 15:58:22 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/11 18:26:30 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/13 18:24:25 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,14 @@
 
 Cat::Cat() : Animal()
 {
-	type = "cat";
 	std::cout << "Cat: Default Constructor called\n";
+	type = "Cat";
 }
 
-Cat::Cat(const Cat &obj) : Animal()
+Cat::Cat(const Cat &obj) : Animal(obj)
 {
+	std::cout << "Cat: Copy Constructor called";
 	type = "Cat";
-	std::cout << "Cat: Copy Constructor called\n";
-	*this = obj;
 }
 
 Cat &Cat::operator=(const Cat &obj)
@@ -36,11 +35,6 @@ Cat::~Cat()
 {
 	std::cout << "Cat: Destructor called\n";
 }
-
-//std::string Cat::getType() const
-//{
-//	return this->type;
-//}
 
 void Cat::makeSound() const
 {

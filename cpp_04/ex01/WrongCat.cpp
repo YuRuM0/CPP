@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/09 16:02:24 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/10 15:03:10 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/13 18:36:05 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ WrongCat::WrongCat() : WrongAnimal()
 	type = "WrongCat";
 }
 
-WrongCat::WrongCat(const WrongCat &obj)
+WrongCat::WrongCat(const WrongCat &obj): WrongAnimal(obj)
 {
 	std::cout << "Wrong Cat: Constructor called\n";
-	*this = obj;
+	type = "Wrongcat";
 }
 
 WrongCat &WrongCat::operator=(const WrongCat &obj)

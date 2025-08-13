@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/09 15:58:22 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/13 13:56:16 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/13 18:34:45 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ Cat::Cat() : Animal()
 	std::cout << "Cat: Default Constructor called\n";
 }
 
-Cat::Cat(const Cat &obj) : Animal()
+Cat::Cat(const Cat &obj) : Animal(obj)
 {
-	type = "Cat";
-	ideas = obj.ideas;
 	std::cout << "Cat: Copy Constructor called\n";
-	*this = obj;
+	type = "Cat";
+	for (int i = 0; i < 100; i++)
+		ideas[i] = obj.ideas[i];
 }
 
 Cat &Cat::operator=(const Cat &obj)

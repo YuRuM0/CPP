@@ -6,7 +6,7 @@
 #    By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/09 15:55:30 by yulpark           #+#    #+#              #
-#    Updated: 2025/08/11 19:20:21 by yulpark          ###   ########.fr        #
+#    Updated: 2025/08/13 18:39:53 by yulpark          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ BRIGHT_BLUE = \033[94m
 
 CPP = c++
 CPP_FLAGS = -Wall -Wextra -Werror -std=c++17
-#CPP_FLAGS += -fsanitize=address
+CPP_FLAGS += -fsanitize=address
 
 SRCS = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
 OBJS_DIR = objs/

@@ -16,10 +16,9 @@ WrongAnimal::WrongAnimal() : type("")
 	std::cout << "WrongAnimal: Default Constructor called\n";
 }
 
-WrongAnimal::WrongAnimal(const WrongAnimal &obj)
+WrongAnimal::WrongAnimal(const WrongAnimal &obj) : type(obj.type)
 {
 	std::cout << "Wrong Animal: Constructor called\n";
-	*this = obj;
 }
 
 WrongAnimal &WrongAnimal::operator=(const WrongAnimal &obj)
