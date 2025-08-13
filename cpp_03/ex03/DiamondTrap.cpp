@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 23:16:47 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/12 21:59:21 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/13 14:02:26 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ void DiamondTrap::run_DiamondTrap(DiamondTrap &player)
 		std::cout << "\n";
 		if (action == "ATTACK")
 		{
-			if (player.Hit_pts - player.Attack_dmg > 0 && Energy_pts > 0)
+			if (player.Hit_pts > FragTrap::FRAG_ATTK && Energy_pts > 0)
 			{
 				this->attack(player.name);
 				player.takeDamage(this->Attack_dmg);

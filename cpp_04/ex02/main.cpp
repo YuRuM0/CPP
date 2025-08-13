@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/09 15:55:54 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/11 19:45:31 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/12 17:52:04 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int main()
 	delete j;
 	delete i;
 	//delete k;
-	const WrongAnimal *meta1 = new WrongAnimal();
+	const WrongAnimal *meta1 = new WrongAnimal(); //fail situation
 	const WrongAnimal *wrongcat = new WrongCat();
 	std::cout << meta1->getType() << " " << std::endl;
 	std::cout << wrongcat->getType() << " " << std::endl;

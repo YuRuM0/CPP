@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 20:26:52 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/12 21:40:24 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/13 13:50:30 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void ScavTrap::run_ScavTrap(ScavTrap &player)
 		std::cout << "\n";
 		if (action == "ATTACK")
 		{
-			if (player.Hit_pts > 0 && Energy_pts > 0)
+			if (player.Hit_pts >= 20 && Energy_pts > 0)
 			{
 				this->attack(player.name);
 				player.takeDamage(this->Attack_dmg);

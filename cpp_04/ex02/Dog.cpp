@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/09 15:58:06 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/11 19:36:37 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/13 13:57:14 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,9 @@ Dog::Dog(): AAnimal()
 
 Dog::Dog(const Dog &obj) : AAnimal()
 {
+	//type?
 	std::cout << "Dog: Constructor called\n";
-	ideas = new Brain();
+	ideas = obj.ideas;
 	*this = obj;
 }
 

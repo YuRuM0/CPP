@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 20:26:52 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/12 21:39:28 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/13 13:58:22 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void FragTrap::run_FragTrap(FragTrap &player)
 		std::cout << "\n";
 		if (action == "ATTACK")
 		{
-			if (player.Hit_pts - player.Attack_dmg > 0 && Energy_pts > 0)
+			if (player.Hit_pts >= 30 && Energy_pts > 0)
 			{
 				this->attack(player.name);
 				player.takeDamage(this->Attack_dmg);

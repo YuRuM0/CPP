@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/09 15:58:22 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/11 19:36:21 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/13 13:56:56 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ Cat::Cat() : AAnimal()
 
 Cat::Cat(const Cat &obj) : AAnimal()
 {
-	type = "Cat";
-	ideas = new Brain();
 	std::cout << "Cat: Copy Constructor called\n";
+	type = "Cat";
+	ideas = obj.ideas;
 	*this = obj;
 }
 

@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/03 19:57:57 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/09 15:25:05 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/13 13:42:07 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ class ClapTrap
 {
 	private:
 		std::string name;
-		int Hit_pts;
-		int Energy_pts;
-		int Attack_dmg;
+		unsigned int Hit_pts;
+		unsigned int Energy_pts;
+		unsigned int Attack_dmg;
 
 	public:
 		ClapTrap();
