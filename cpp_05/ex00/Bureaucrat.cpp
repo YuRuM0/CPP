@@ -17,9 +17,13 @@ Bureaucrat::Bureaucrat() : name(""), grade(std::rand() % 150)
 {
 }
 
-Bureaucrat::Bureaucrat(const std::string name, unsigned int grade) : name(name), grade(grade)
+Bureaucrat::Bureaucrat(const std::string name, unsigned int grade) : name(name)
 {
-	//must check the grade
+	try
+	{
+		setGrade(grade);
+	}
+	catch (Bureaucrat::GradeTooLowException)
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat &obj) : name(obj.name), grade(obj.grade)
@@ -40,6 +44,15 @@ std::string Bureaucrat::getName()
 unsigned int Bureaucrat::getGrade()
 {
 	return (this->grade);
+}
+
+void Bureaucrat::setGrade(unsigned int amount)
+{
+	if (amount < 1)
+		throw GradeTooLowException();
+	if (amount > 150)
+		throw GradeTooHighException();
+	this->grade = amount;
 }
 
 void Bureaucrat::incGrade(unsigned int amount)

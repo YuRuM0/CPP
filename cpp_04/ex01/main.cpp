@@ -6,12 +6,13 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/09 15:55:54 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/13 18:39:45 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/14 14:41:24 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 #include "Cat.hpp"
+
 
 int main()
 {
@@ -54,7 +55,7 @@ int main()
 //    std::cout << "Copy[0]: " << copy.ideas[0] << "\n";
 
 //    if (copy.ideas[0] == "Original idea")
-//        std::cout << "✅ Deep copy works!\n";
+//        std::cout << "Deep copy works!\n";
 //    else
-//        std::cout << "❌ Shallow copy detected!\n";
+//        std::cout << "Shallow copy.....\n";
 //}

@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/09 19:47:20 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/10 15:03:06 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/14 14:38:32 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ class WrongAnimal
 		WrongAnimal &operator=(const WrongAnimal &obj);
 		virtual ~WrongAnimal();
 		std::string getType() const;
-		virtual void makeSound() const;
+		void makeSound() const;
 };

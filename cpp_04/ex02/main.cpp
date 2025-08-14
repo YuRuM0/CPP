@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/09 15:55:54 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/13 18:51:20 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/14 14:41:08 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ int main()
 	k->makeSound();
 	delete j;
 	delete i;
-	//delete k;
-	const WrongAnimal *meta1 = new WrongAnimal(); //fail situation
+	delete k;
+	const WrongAnimal *meta1 = new WrongAnimal();
 	const WrongAnimal *wrongcat = new WrongCat();
 	std::cout << meta1->getType() << " " << std::endl;
 	std::cout << wrongcat->getType() << " " << std::endl;
@@ -79,7 +79,7 @@ int main()
 //    std::cout << "Copy[0]: " << copy.ideas[0] << "\n";
 
 //    if (copy.ideas[0] == "Original idea")
-//        std::cout << "✅ Deep copy works!\n";
+//        std::cout << "Deep copy works!\n";
 //    else
-//        std::cout << "❌ Shallow copy detected!\n";
+//        std::cout << "Shallow copy.....\n";
 //}
