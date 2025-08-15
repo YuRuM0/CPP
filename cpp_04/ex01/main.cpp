@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/09 15:55:54 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/14 14:41:24 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/14 18:34:51 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,15 @@ int main()
 		std::cout << "Round: " << i + 1 << "\n";
 		delete (Animals[i]);
 	}
-	std::cout << "\nCiao Rudy!\n\n";
+	std::cout << "\nCiao Rudy e Lily!\n\n";
 	Dog *Rudy = new Dog();
+	Dog Lilly(*Rudy);
 	Rudy->makeSound();
 	Rudy->getBrain().setIdeas("Rudy's thoughts");
 	Rudy->getBrain().print_first10_ideas();
+	Lilly.makeSound();
+	Lilly.getBrain().setIdeas("Lilly's thoughts");
+	Lilly.getBrain().print_first10_ideas();
 	delete Rudy;
 	return (0);
 }
