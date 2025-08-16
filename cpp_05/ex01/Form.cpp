@@ -1,3 +1,4 @@
+#include "Form.hpp"
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -10,4 +11,75 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Form.hpp"
 
+Form::Form() :  name("NoName"), sign(false), SignGrade(std::rand() % 150), ExecGrade(std::rand() % 150)
+{
+}
+
+Form::Form(const std::string _name, bool _sign, const int _SignGrade, const int _ExecGrade)
+	: name(_name), sign(_sign), SignGrade(_SignGrade), ExecGrade(_ExecGrade)
+{
+	if (_SignGrade < 1 || _ExecGrade < 1)
+		throw GradeTooHighException();
+	if (_SignGrade > 150 || _ExecGrade > 150)
+		throw GradeTooLowException();
+}
+
+Form::Form(Form &obj)
+	: name(obj.name), sign(obj.sign), SignGrade(obj.SignGrade), ExecGrade(obj.ExecGrade)
+{
+}
+
+Form::~Form()
+{
+}
+
+const std::string Form::getName()
+{
+	return (this->name);
+}
+
+bool Form::getSign()
+{
+	return (this->sign);
+}
+
+const int Form::getSignGrade()
+{
+	return (this->SignGrade);
+}
+
+const int Form::getExecGrade()
+{
+	return (this->ExecGrade);
+}
+
+void Form::beSigned(Bureaucrat &B)
+{
+	if (B.getGrade() <= this->SignGrade)
+		this->sign = true;
+	else
+		throw GradeTooLowException();
+}
+
+std::ostream &operator<<(std::ostream &out, Form &obj)
+{
+	out << "Name: " << obj.getName() << std::endl
+		<< "Signed: " << obj.getSign() << std::endl
+		<< "Sign Grade: " << obj.getSignGrade() << std::endl
+		<< "Execution Grade: " << obj.getExecGrade() << std::endl;
+	return out;
+}
+
+const char *Form::GradeTooHighException::what() const noexcept
+{
+	const char *msg = "Grade Too High: the grade must be lower than 1.\n";
+	return (msg);
+}
+
+const char *Form::GradeTooLowException::what() const noexcept
+{
+	const char *msg = "Grade Too Low: the grade must be higher than 150.\n";
+	return (msg);
+}

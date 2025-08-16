@@ -6,28 +6,51 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 17:09:22 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/15 17:14:25 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/16 18:42:20 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <iostream>
 #include <string>
+#include <cstdlib>
 #include "Bureaucrat.hpp"
 
-class Form // should inherit?
+//forward declaration:
+class Bureaucrat;
+
+class Form
 {
 	private:
 		const std::string name;
 		bool sign;
 		const int SignGrade;
-		const int ExecGRade;
+		const int ExecGrade;
 	public:
 		Form();
-		Form(const std::string name, bool sign, const int SignGrade, const int ExecGrade);
+		Form(const std::string _name, bool _sign, const int _SignGrade, const int _ExecGrade);
 		Form(Form &obj);
 		~Form();
-		void beSigned(Bureaucrat *B);
+
+		const std::string getName();
+		bool getSign();
+		const int getSignGrade();
+		const int getExecGrade();
+
+		void beSigned(Bureaucrat &B);
+
+		class GradeTooHighException : public std::exception
+		{
+			public:
+				const char* what() const noexcept override;
+				// in std::exception, what() is a virtual func meant to give a textual description of the error
+		};
+
+		class GradeTooLowException : public std::exception
+		{
+			public:
+				const char* what() const noexcept override;
+		};
 
 };
 

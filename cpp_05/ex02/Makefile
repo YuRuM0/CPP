@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/08/13 20:20:33 by yulpark           #+#    #+#              #
-#    Updated: 2025/08/16 18:49:24 by yulpark          ###   ########.fr        #
+#    Created: 2025/08/16 21:25:45 by yulpark           #+#    #+#              #
+#    Updated: 2025/08/16 21:26:24 by yulpark          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ CPP = c++
 CPP_FLAGS = -Wall -Wextra -Werror -std=c++17
 CPP_FLAGS += -fsanitize=address
 
-SRCS = main.cpp Bureaucrat.cpp Form.cpp
+SRCS = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
 OBJS_DIR = objs/
 OBJS_O = $(SRCS:.cpp=.o)
 OBJS = $(addprefix $(OBJS_DIR), $(OBJS_O))

@@ -57,9 +57,9 @@ void Bureaucrat::incGrade(unsigned int amount)
 
 void Bureaucrat::decGrade(unsigned int amount)
 {
-	if (grade - amount < 1)
+	if (grade + amount < 1)
 		throw GradeTooLowException();
-	if (grade - amount > 150)
+	if (grade + amount > 150)
 		throw GradeTooHighException();
 	this->grade += amount;
 }
