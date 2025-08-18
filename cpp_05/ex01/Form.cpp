@@ -1,4 +1,3 @@
-#include "Form.hpp"
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -7,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 17:09:16 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/15 17:09:21 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/17 15:30:23 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +32,13 @@ Form::Form(Form &obj)
 
 Form::~Form()
 {
+}
+
+Form &Form::operator=(Form &obj)
+{
+	if (this != &obj)
+		*this = obj;
+	return (*this);
 }
 
 const std::string Form::getName()
