@@ -1,4 +1,3 @@
-#include "PresidentialPardonForm.hpp"
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -7,9 +6,11 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/16 21:58:09 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/16 21:58:10 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/18 15:10:41 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "PresidentialPardonForm.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm(std::string _target)
 : AForm("PresidentialPardonForm", false, 25, 5), target(_target)
