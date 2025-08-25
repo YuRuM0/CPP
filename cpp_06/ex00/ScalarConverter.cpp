@@ -143,7 +143,7 @@ static void convertFloat(std::string (&output)[4], std::string &literal)
 			output[i] += "Impossible";
 		return ;
 	}
-	if (std::isprint(literal[0]) != 0)
+	if (std::isprint(static_cast<int>(res)) != 0)
 		output[CHAR] += "Non-printable";
 	else if (literal[0] > 127)
 		output[CHAR] += "Impossible";
@@ -168,7 +168,7 @@ static void convertDouble(std::string (&output)[4], std::string &literal)
 		for (int i = 0; i < 4; i++)
 			output[i] += "Impossible";
 	}
-	if (!std::isprint(literal[0]))
+	if (!std::isprint(static_cast<int>(res)))
 		output[CHAR] += "Non-printable";
 	else if (literal[0] > 127 || literal[0] < 0)
 		output[CHAR] += "Impossible";
@@ -200,22 +200,20 @@ static void convertPseudo(std::string (&output)[4], std::string &literal)
 	}
 }
 
-/*
-crashes when no 0 found, sometimes int must be trimmed too e.g. 42f
-*/
-
 void	string_trimmer(std::string (&output)[4])
 {
 
 	for (int i = 2; i < 4; i++)
 	{
-		int pos = output[i].find("0");
-		if (pos != std::string::npos)
-		{
-			output[i] = output[i].substr(0, pos);
-			if (i == 2)
-				output[i] += "f";
-		}
+		std::string content = output[i].substr(output[i].find(": ") + 2);
+		if (content.find(".") == std::string::npos)
+			continue;
+		while (content.back() == '0' && content[content.size() - 2] != '.')
+			content.pop_back();
+		if (i == 2)
+			output[i] = "float: " + content + "f";
+		else
+			output[i] = "double: " + content;
 	}
 }
 
