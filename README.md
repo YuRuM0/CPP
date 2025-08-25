@@ -25,19 +25,3 @@ Modules 00–05 completed, modules 07–09 are not done yet.
 ## Tools
 - Compiler: `clang++`  
 - Makefiles included for each module  
-
----
-
-## Repository Structure
-CPP-Modules/
-├─ CPP00_Basics/
-├─ CPP01_Functions/
-├─ CPP02_Classes/
-├─ CPP03_OrthodoxCanonicalForm/
-├─ CPP04_OperatorOverloading/
-├─ CPP05_Inheritance/
-├─ CPP06_Polymorphism/
-├─ CPP07_Reserved/
-├─ CPP08_Reserved/
-└─ CPP09_Reserved/
-
