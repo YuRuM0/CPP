@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.codam.nl>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/25 15:32:23 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/25 15:56:02 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/26 23:45:48 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void identify(Base* p)
     else if (dynamic_cast<C*>(p))
         std::cout << "C" << std::endl;
     else
-        std::cout << "No type" << std::endl;;
+        std::cout << "No type" << std::endl;
 }
 
 /*
@@ -50,6 +50,34 @@ As reference can't be null, it cannot return null ptr after casting
 */
 void identify(Base& p)
 {
+	try
+	{
+		dynamic_cast<A& >(p);
+		std::cout << "A" << std::endl;
+		return ;
+	}
+	catch(const std::exception& e)
+	{
+	}
+	try
+	{
+		dynamic_cast<B& >(p);
+		std::cout << "B" << std::endl;
+		return ;
+	}
+	catch(const std::exception& e)
+	{
+	}
+	try
+	{
+		dynamic_cast<C& >(p);
+		std::cout << "C" << std::endl;
+		return ;
+	}
+	catch(const std::exception& e)
+	{
+	}
+	std::cout << "No type" << std::endl;
 }
 		
 int main(void)
