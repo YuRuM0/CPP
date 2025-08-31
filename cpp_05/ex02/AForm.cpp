@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/16 21:43:09 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/18 14:11:11 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/27 14:25:18 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ AForm &AForm::operator=(AForm &obj)
 	return (*this);
 }
 
-const std::string AForm::getName()
+const std::string AForm::getName() const
 {
 	return (this->name);
 }

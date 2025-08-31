@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 19:50:38 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/18 00:07:57 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/27 14:24:28 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ class Bureaucrat
 		void incGrade(unsigned int amount);
 		void decGrade(unsigned int amount);
 		void signForm(AForm &F);
-		virtual void executeForm(AForm &Form)const;
+		virtual void executeForm(AForm const &Form)const;
 		class GradeTooHighException : public std::exception
 		{
 			public:

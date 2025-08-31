@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/16 21:43:38 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/18 00:07:19 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/27 14:25:33 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ class AForm
 		virtual ~AForm();
 		AForm &operator=(AForm &obj);
 
-		const std::string getName();
+		const std::string getName() const;
 		bool getSign();
 		const int getSignGrade();
 		const int getExecGrade();

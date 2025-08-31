@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/16 21:58:12 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/18 15:29:17 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/27 14:36:21 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,13 @@ int main()
 {
 	Intern someRandomIntern;
 	AForm * rrf;
+	Bureaucrat Charles("Charles", 1);
 
 	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-	
+	Charles.signForm(*rrf);
+	Charles.executeForm(*rrf);
 
+	std::cout << *rrf << std::endl;
+	std::cout << Charles << std::endl;
+	delete rrf;
 }

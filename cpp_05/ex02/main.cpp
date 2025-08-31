@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/16 21:58:12 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/18 14:12:21 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/27 14:21:29 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,16 @@
 #include "PresidentialPardonForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include <ctime>
 
 int main()
 {
 	//AForm Form("A form", false, 6, 7);
-	Bureaucrat Charles("Charles", 130);
+	Bureaucrat Charles("Charles", 4);
 	PresidentialPardonForm PPF("PPF");
 	ShrubberyCreationForm SCF("Shrub");
 	RobotomyRequestForm RRF("robot");
-
+	
 	try
 	{
 		std::cout << Charles;

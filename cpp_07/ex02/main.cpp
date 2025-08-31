@@ -5,37 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/13 20:21:45 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/31 19:08:04 by yulpark          ###   ########.fr       */
+/*   Created: 2025/08/31 18:17:10 by yulpark           #+#    #+#             */
+/*   Updated: 2025/08/31 19:32:49 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#include "Array.hpp"
 
 int main()
 {
 	try
 	{
-		Bureaucrat B1;
-		std::cout << B1;
+		int *a = new int();
+		Array<int> b(3);
 
-		B1.incGrade(5);
-		std::cout << B1;
-		B1.decGrade(10);
-		std::cout << B1;
-
-		Bureaucrat Nick("Nick", 10);
-		std::cout << Nick;
-
-		Bureaucrat Tiago("Tiago", 150);
-		std::cout << Tiago;
-
-		Bureaucrat Charles("Charles", 2);
-		std::cout << Charles;
+		std::cout << a << std::endl;
+		std::cout << b[0] << std::endl;
+		std::cout << b[5] << std::endl;
 	}
-	catch (const std::exception &e)
+	catch(const std::exception& e)
 	{
-		std::cout << e.what() << std::endl;
+		std::cerr << e.what() << '\n';
 	}
 	return (0);
 }

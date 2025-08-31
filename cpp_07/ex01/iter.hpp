@@ -1,41 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/13 20:21:45 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/31 19:08:04 by yulpark          ###   ########.fr       */
+/*   Created: 2025/08/31 15:28:12 by yulpark           #+#    #+#             */
+/*   Updated: 2025/08/31 18:15:44 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#pragma once
 
-int main()
+#include <iostream>
+#include <string>
+
+/*
+function templates: write generic functions that can work w/ diff data types
+*/
+
+template <typename T, typename F>
+void iter(T *a, size_t b, F c)
 {
-	try
+	for (int i = 0; i < b; i++)
 	{
-		Bureaucrat B1;
-		std::cout << B1;
-
-		B1.incGrade(5);
-		std::cout << B1;
-		B1.decGrade(10);
-		std::cout << B1;
-
-		Bureaucrat Nick("Nick", 10);
-		std::cout << Nick;
-
-		Bureaucrat Tiago("Tiago", 150);
-		std::cout << Tiago;
-
-		Bureaucrat Charles("Charles", 2);
-		std::cout << Charles;
+		c(a[i]);
 	}
-	catch (const std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	return (0);
 }

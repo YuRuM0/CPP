@@ -5,21 +5,21 @@
 #                                                     +:+ +:+         +:+      #
 #    By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/08/16 21:25:45 by yulpark           #+#    #+#              #
-#    Updated: 2025/08/27 14:39:33 by yulpark          ###   ########.fr        #
+#    Created: 2025/08/18 20:54:55 by yulpark           #+#    #+#              #
+#    Updated: 2025/08/31 15:28:07 by yulpark          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Bureaucrat
+NAME = first_template
 
 GREEN   = \033[32m
 RESET   = \033[0m
 
 CPP = c++
 CPP_FLAGS = -Wall -Wextra -Werror -std=c++17
-#CPP_FLAGS += -fsanitize=address
+CPP_FLAGS += -fsanitize=address
 
-SRCS = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
+SRCS = main.cpp
 OBJS_DIR = objs/
 OBJS_O = $(SRCS:.cpp=.o)
 OBJS = $(addprefix $(OBJS_DIR), $(OBJS_O))

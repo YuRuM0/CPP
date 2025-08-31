@@ -19,10 +19,11 @@ Bureaucrat::Bureaucrat() : name("NoName"), grade(std::rand() % 150)
 
 Bureaucrat::Bureaucrat(const std::string name, unsigned int grade) : name(name)
 {
+	std::cout << grade << std::endl;
 	if (grade < 1)
-		throw GradeTooLowException();
-	if (grade > 150)
 		throw GradeTooHighException();
+	if (grade > 150)
+		throw GradeTooLowException();
 	this->grade = grade;
 }
 
@@ -49,18 +50,18 @@ unsigned int Bureaucrat::getGrade()
 void Bureaucrat::incGrade(unsigned int amount)
 {
 	if (grade - amount < 1)
-		throw GradeTooLowException();
-	if (grade - amount > 150)
 		throw GradeTooHighException();
+	if (grade - amount > 150)
+		throw GradeTooLowException();
 	this->grade -= amount;
 }
 
 void Bureaucrat::decGrade(unsigned int amount)
 {
 	if (grade + amount < 1)
-		throw GradeTooLowException();
-	if (grade + amount > 150)
 		throw GradeTooHighException();
+	if (grade + amount > 150)
+		throw GradeTooLowException();
 	this->grade += amount;
 }
 

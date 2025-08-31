@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/16 21:58:06 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/18 14:09:43 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/31 19:02:34 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm &obj)
 
 RobotomyRequestForm &RobotomyRequestForm::operator=(RobotomyRequestForm &obj)
 {
-		if (this != &obj)
+	if (this != &obj)
 		*this = obj;
 	return (*this);
 }

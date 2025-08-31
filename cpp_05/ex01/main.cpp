@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 20:21:45 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/16 20:51:33 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/27 14:13:03 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 int main()
 {
-	Form Form("A form", false, 6, 7);
+	Form Form("A form", true, 6, 7);
+	std::cout << Form << std::endl;
 
 	try
 	{
@@ -24,18 +25,18 @@ int main()
 		Bob.incGrade(5);
 		std::cout << Bob;
 		Bob.decGrade(10);
-		std::cout << Bob;
+		std::cout << Bob << std::endl;
 
-		Bureaucrat Nick("Nick", 10);
+		Bureaucrat Nick("Nick", 5);
 		std::cout << Nick;
 		Nick.signForm(Form);
 
 		Bureaucrat Tiago("Tiago", 150);
 		std::cout << Tiago;
-		Tiago.decGrade(1);
-		std::cout << Tiago;
+		//Tiago.decGrade(1);
+		//std::cout << Tiago;
 
-		Bureaucrat Charles("Charles", 1);
+		Bureaucrat Charles("Charles", 24);
 		//Charles.incGrade(2);
 		std::cout << Charles;
 		Charles.signForm(Form);

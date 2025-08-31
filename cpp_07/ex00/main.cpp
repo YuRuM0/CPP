@@ -5,37 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/13 20:21:45 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/31 19:08:04 by yulpark          ###   ########.fr       */
+/*   Created: 2025/08/31 15:28:14 by yulpark           #+#    #+#             */
+/*   Updated: 2025/08/31 15:28:36 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#include "whatever.hpp"
 
-int main()
+int main( void )
 {
-	try
-	{
-		Bureaucrat B1;
-		std::cout << B1;
-
-		B1.incGrade(5);
-		std::cout << B1;
-		B1.decGrade(10);
-		std::cout << B1;
-
-		Bureaucrat Nick("Nick", 10);
-		std::cout << Nick;
-
-		Bureaucrat Tiago("Tiago", 150);
-		std::cout << Tiago;
-
-		Bureaucrat Charles("Charles", 2);
-		std::cout << Charles;
-	}
-	catch (const std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
-	return (0);
+	int a = 2;
+	int b = 3;
+	::swap( a, b );
+	std::cout << "a = " << a << ", b = " << b << std::endl;
+	std::cout << "min( a, b ) = " << ::min( a, b ) << std::endl;
+	std::cout << "max( a, b ) = " << ::max( a, b ) << std::endl;
+	std::string c = "chaine1";
+	std::string d = "chaine2";
+	::swap(c, d);
+	std::cout << "c = " << c << ", d = " << d << std::endl;
+	std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
+	std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
+	return 0;
 }

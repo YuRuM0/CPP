@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 14:14:23 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/18 17:40:16 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/27 14:41:03 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,14 +54,12 @@ AForm *Intern::makeForm(std::string FormName, std::string FormTarget)
 	{
 		if (FormName == options[i])
 		{
-			(this->*forms[i])(FormTarget);
-			break;
+			std::cout << "Intern creates " << FormName << std::endl;
+			return ((this->*forms[i])(FormTarget));
 		}
 		if (FormName != options[i] && i == 3)
 			throw WrongFormNameException();
 	}
-	std::cout << "Intern creates " << FormName << std::endl;
-	return (this->*forms[i])(FormTarget);
 }
 
 const char *Intern::WrongFormNameException::what() const noexcept

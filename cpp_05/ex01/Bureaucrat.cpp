@@ -32,7 +32,7 @@ Bureaucrat::Bureaucrat(Bureaucrat &obj) : name(obj.name), grade(obj.grade)
 
 std::ostream &operator<<(std::ostream &out, Bureaucrat &obj)
 {
-	out << obj.getName() << ", bureaucrat grade " << obj.getGrade() << "." << std::endl; //is endl required?
+	out << obj.getName() << ", bureaucrat grade " << obj.getGrade() << "." << std::endl;
 	return out;
 }
 
@@ -49,30 +49,30 @@ unsigned int Bureaucrat::getGrade()
 void Bureaucrat::incGrade(unsigned int amount)
 {
 	if (grade - amount < 1)
-		throw GradeTooLowException();
-	if (grade - amount > 150)
 		throw GradeTooHighException();
+	if (grade - amount > 150)
+		throw GradeTooLowException();
 	this->grade -= amount;
 }
 
 void Bureaucrat::decGrade(unsigned int amount)
 {
 	if (grade + amount < 1)
-		throw GradeTooLowException();
-	if (grade + amount > 150)
 		throw GradeTooHighException();
+	if (grade + amount > 150)
+		throw GradeTooLowException();
 	this->grade += amount;
 }
 
 const char *Bureaucrat::GradeTooHighException::what() const noexcept
 {
-	const char *msg = "Grade Too High: the grade must be lower than 1.\n";
+	const char *msg = "Grade Too High.\n";
 	return (msg);
 }
 
 const char *Bureaucrat::GradeTooLowException::what() const noexcept
 {
-	const char *msg = "Grade Too Low: the grade must be higher than 150.\n";
+	const char *msg = "Grade Too Low.\n";
 	return (msg);
 }
 
@@ -83,7 +83,7 @@ void Bureaucrat::signForm(Form &F)
 		F.beSigned(*this);
 		std::cout << this->getName() << " signed " << F.getName() << std::endl;
 	}
-	catch(const Bureaucrat::GradeTooLowException& e)
+	catch(const std::exception& e)
 	{
 		std::cout << this->getName() << " couldn't sign " << F.getName() << " because " << e.what() << std::endl;
 	}

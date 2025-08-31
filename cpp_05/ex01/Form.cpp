@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 17:09:16 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/17 15:30:23 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/08/27 14:07:30 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,12 +80,12 @@ std::ostream &operator<<(std::ostream &out, Form &obj)
 
 const char *Form::GradeTooHighException::what() const noexcept
 {
-	const char *msg = "Grade Too High: the grade must be lower than 1.\n";
+	const char *msg = "Grade is too high.\n";
 	return (msg);
 }
 
 const char *Form::GradeTooLowException::what() const noexcept
 {
-	const char *msg = "Grade Too Low: the grade must be higher than 150.\n";
+	const char *msg = "Grade is too low.\n";
 	return (msg);
 }
