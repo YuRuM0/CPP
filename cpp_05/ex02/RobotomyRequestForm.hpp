@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/16 21:58:05 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/18 00:13:48 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/10/24 14:20:15 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ class RobotomyRequestForm :  public AForm
 		RobotomyRequestForm &operator=(RobotomyRequestForm &obj);
 		~RobotomyRequestForm();
 		const std::string &getTarget();
-		void beSigned(Bureaucrat &B) override;
-		void execute(Bureaucrat const & executor)const override;
+		//void beSigned(Bureaucrat &B) override;
+		void action()const override;
 };

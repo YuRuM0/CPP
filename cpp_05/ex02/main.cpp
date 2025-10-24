@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/16 21:58:12 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/27 14:21:29 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/10/24 14:20:56 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int main()
 	PresidentialPardonForm PPF("PPF");
 	ShrubberyCreationForm SCF("Shrub");
 	RobotomyRequestForm RRF("robot");
-	
 	try
 	{
 		std::cout << Charles;

@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/16 21:49:45 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/18 00:14:18 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/10/24 14:20:20 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ class ShrubberyCreationForm :  public AForm
 		~ShrubberyCreationForm();
 		const std::string &getType();
 
-		void beSigned(Bureaucrat &B) override;
-		void execute(Bureaucrat const & executor)const override;
+		//void beSigned(Bureaucrat &B) override;
+		void action()const override;
 };

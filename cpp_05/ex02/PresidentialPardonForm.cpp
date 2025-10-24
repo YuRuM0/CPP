@@ -24,7 +24,7 @@ PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm &obj)
 PresidentialPardonForm &PresidentialPardonForm::operator=(PresidentialPardonForm &obj)
 {
 	if (this != &obj)
-		*this = obj;
+		AForm::operator=(obj);
 	return (*this);
 }
 
@@ -37,22 +37,15 @@ const std::string &PresidentialPardonForm::getTarget()
 	return (this->target);
 }
 
-void PresidentialPardonForm::beSigned(Bureaucrat &B)
-{
-	if (B.getGrade() <= 25)
-		this->sign = true;
-	else
-		throw GradeTooLowException();
-}
+//void PresidentialPardonForm::beSigned(Bureaucrat &B)
+//{
+//	if (B.getGrade() <= 25)
+//		this->sign = true;
+//	else
+//		throw GradeTooLowException();
+//}
 
-void PresidentialPardonForm::execute(Bureaucrat const &executor) const
+void PresidentialPardonForm::action() const
 {
-	if (this->sign == false)
-		throw UnsignedForm();
-	if (executor.getGrade() <= 5)
-	{
-		std::cout << target << " has been pardoned by Zaphod Beeblebrox.\n";
-	}
-	else
-		throw GradeTooLowException();
+	std::cout << target << " has been pardoned by Zaphod Beeblebrox.\n";
 }

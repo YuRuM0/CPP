@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/16 21:43:09 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/27 14:25:18 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/10/24 14:19:54 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ AForm::~AForm()
 AForm &AForm::operator=(AForm &obj)
 {
 	if (this != &obj)
-		*this = obj;
+		sign = obj.sign;
 	return (*this);
 }
 
@@ -69,16 +69,14 @@ void AForm::beSigned(Bureaucrat &B)
 		throw GradeTooLowException();
 }
 
+//throw exception if possible to execute a form
 void AForm::execute(Bureaucrat const &executor) const
 {
-	try
-	{
-		execute(executor);
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
+	if (this->sign != true)
+		throw UnsignedForm();
+	if (this->ExecGrade < executor.getGrade())
+		throw GradeTooLowException();
+	action();
 }
 
 std::ostream &operator<<(std::ostream &out, AForm &obj)

@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 19:50:38 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/27 14:24:28 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/10/24 14:22:43 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ class Bureaucrat
 	public:
 		Bureaucrat();
 		Bureaucrat(const std::string name, unsigned int grade);
+		Bureaucrat &operator=(Bureaucrat &obj);
 		Bureaucrat (Bureaucrat &obj);
 		std::string getName() const;
 		unsigned int getGrade() const;

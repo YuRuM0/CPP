@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/16 21:49:44 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/18 14:09:49 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/10/24 14:25:02 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm &obj)
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm &obj)
 {
 	if (this != &obj)
-		*this = obj;
+		AForm::operator=(obj);
 	return (*this);
 }
 
@@ -37,20 +37,16 @@ const std::string &ShrubberyCreationForm::getType()
 {
 	return (this->target);
 }
-void ShrubberyCreationForm::beSigned(Bureaucrat &B)
+//void ShrubberyCreationForm::beSigned(Bureaucrat &B)
+//{
+//	if (B.getGrade() <= 145)
+//		this->sign = true;
+//	else
+//		throw GradeTooLowException();
+//}
+void ShrubberyCreationForm::action()const
 {
-	if (B.getGrade() <= 145)
-		this->sign = true;
-	else
-		throw GradeTooLowException();
-}
-void ShrubberyCreationForm::execute(Bureaucrat const & executor)const
-{
-	if (this->sign == false)
-		throw UnsignedForm();
-	if (executor.getGrade() <= 137)
-	{
-		std::ofstream output_file(target + "_shrubbery.txt");
+	std::ofstream output_file(target + "_shrubbery.txt");
 		output_file << "   *    *  ()   *   *\n"
 					<< "*        * /\\         *\n"
 					<< "      *   /i\\    *  *\n"
@@ -70,8 +66,5 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor)const
 					<< " *     //o//i\\*\\\\   *\n"
 					<< "    * /i///*/\\\\\\o\\   *\n"
 					<< "  *    *    ||     *\n" << std::endl;
-	}
-	else
-		throw GradeTooLowException();
 }
 

@@ -101,3 +101,10 @@ void Bureaucrat::executeForm(AForm const &Form) const
 		std::cerr << e.what() << '\n';
 	}
 }
+
+Bureaucrat &Bureaucrat::operator=(Bureaucrat &obj)
+{
+	if (this != &obj)
+		this->grade = obj.grade;
+	return (*this);
+}
