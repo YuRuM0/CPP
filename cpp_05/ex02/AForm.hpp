@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/16 21:43:38 by yulpark           #+#    #+#             */
-/*   Updated: 2025/10/24 14:20:04 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/12/27 19:08:32 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,21 +26,22 @@ class AForm
 		bool sign;
 		const int SignGrade;
 		const int ExecGrade;
+	protected:
+		virtual void action()const = 0; //must only be happening after checking the requirements -> execute
 	public:
 		AForm();
 		AForm(AForm &obj);
 		AForm(const std::string _name, bool _sign, const int _SignGrade, const int _ExecGrade);
-		virtual ~AForm();
+		~AForm();
 		AForm &operator=(AForm &obj);
 
-		const std::string getName() const;
-		bool getSign();
-		const int getSignGrade();
-		const int getExecGrade();
+		std::string getName() const;
+		bool getSign() const;
+		int getSignGrade() const;
+		int getExecGrade() const;
 
 		void beSigned(Bureaucrat &B);
-		void execute(Bureaucrat const & executor)const;
-		virtual void action()const = 0;
+		void execute(Bureaucrat const & executor) const;
 
 		class GradeTooHighException : public std::exception
 		{

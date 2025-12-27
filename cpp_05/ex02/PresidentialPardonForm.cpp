@@ -37,14 +37,6 @@ const std::string &PresidentialPardonForm::getTarget()
 	return (this->target);
 }
 
-//void PresidentialPardonForm::beSigned(Bureaucrat &B)
-//{
-//	if (B.getGrade() <= 25)
-//		this->sign = true;
-//	else
-//		throw GradeTooLowException();
-//}
-
 void PresidentialPardonForm::action() const
 {
 	std::cout << target << " has been pardoned by Zaphod Beeblebrox.\n";

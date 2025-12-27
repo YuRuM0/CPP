@@ -6,7 +6,7 @@
 #    By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/16 21:25:45 by yulpark           #+#    #+#              #
-#    Updated: 2025/08/27 14:39:33 by yulpark          ###   ########.fr        #
+#    Updated: 2025/12/27 19:11:30 by yulpark          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,7 @@ clean:
 
 fclean: clean
 	@rm -f $(NAME)
+	@rm -f *.txt
 
 re: fclean all
 

@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 19:50:38 by yulpark           #+#    #+#             */
-/*   Updated: 2025/10/24 14:22:43 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/12/27 19:10:07 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,23 @@ class Bureaucrat
 	public:
 		Bureaucrat();
 		Bureaucrat(const std::string name, unsigned int grade);
-		Bureaucrat &operator=(Bureaucrat &obj);
 		Bureaucrat (Bureaucrat &obj);
+		Bureaucrat &operator=(Bureaucrat &obj);
+		~Bureaucrat();
+
 		std::string getName() const;
 		unsigned int getGrade() const;
 		void incGrade(unsigned int amount);
 		void decGrade(unsigned int amount);
+		virtual void executeForm(AForm &Form)const;
 		void signForm(AForm &F);
-		virtual void executeForm(AForm const &Form)const;
+		
 		class GradeTooHighException : public std::exception
 		{
 			public:
 				const char* what() const noexcept override;
 				// in std::exception, what() is a virtual func meant to give a textual description of the error
+				// the exception doesn't escape; not caught inside
 		};
 
 		class GradeTooLowException : public std::exception
@@ -48,7 +52,6 @@ class Bureaucrat
 			public:
 				const char* what() const noexcept override;
 		};
-
 };
 
 std::ostream &operator<<(std::ostream &out, Bureaucrat &obj);

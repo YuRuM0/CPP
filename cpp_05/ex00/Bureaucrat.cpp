@@ -1,4 +1,3 @@
-#include "Bureaucrat.hpp"
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -7,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 19:50:34 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/13 19:50:35 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/12/27 18:29:50 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +18,6 @@ Bureaucrat::Bureaucrat() : name("NoName"), grade(std::rand() % 150)
 
 Bureaucrat::Bureaucrat(const std::string name, unsigned int grade) : name(name)
 {
-	std::cout << grade << std::endl;
 	if (grade < 1)
 		throw GradeTooHighException();
 	if (grade > 150)
@@ -38,18 +36,21 @@ Bureaucrat &Bureaucrat::operator=(Bureaucrat &obj)
 	return (*this);
 }
 
+Bureaucrat::~Bureaucrat()
+{
+}
 std::ostream &operator<<(std::ostream &out, Bureaucrat &obj)
 {
 	out << obj.getName() << ", bureaucrat grade " << obj.getGrade() << "." << std::endl; //is endl required?
 	return out;
 }
 
-std::string Bureaucrat::getName()
+std::string Bureaucrat::getName() const
 {
 	return (this->name);
 }
 
-unsigned int Bureaucrat::getGrade()
+unsigned int Bureaucrat::getGrade() const
 {
 	return (this->grade);
 }

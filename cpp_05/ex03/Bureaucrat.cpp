@@ -30,6 +30,10 @@ Bureaucrat::Bureaucrat(Bureaucrat &obj) : name(obj.name), grade(obj.grade)
 {
 }
 
+Bureaucrat::~Bureaucrat()
+{
+}
+
 std::ostream &operator<<(std::ostream &out, Bureaucrat &obj)
 {
 	out << obj.getName() << ", bureaucrat grade " << obj.getGrade() << "." << std::endl; //is endl required?

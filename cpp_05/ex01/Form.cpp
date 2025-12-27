@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 17:09:16 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/27 14:07:30 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/12/27 18:53:22 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,26 +37,26 @@ Form::~Form()
 Form &Form::operator=(Form &obj)
 {
 	if (this != &obj)
-		*this = obj;
+		this->sign = obj.sign;
 	return (*this);
 }
 
-const std::string Form::getName()
+std::string Form::getName() const
 {
 	return (this->name);
 }
 
-bool Form::getSign()
+bool Form::getSign() const
 {
 	return (this->sign);
 }
 
-const int Form::getSignGrade()
+int Form::getSignGrade() const
 {
 	return (this->SignGrade);
 }
 
-const int Form::getExecGrade()
+int Form::getExecGrade() const
 {
 	return (this->ExecGrade);
 }

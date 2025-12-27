@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/15 17:09:22 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/17 15:28:11 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/12/27 18:56:42 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ class Form
 		Form(Form &obj);
 		~Form();
 		Form &operator=(Form &obj);
-		const std::string getName();
-		bool getSign();
-		const int getSignGrade();
-		const int getExecGrade();
+		std::string getName() const;
+		bool getSign() const;
+		int getSignGrade() const;
+		int getExecGrade() const;
 
 		void beSigned(Bureaucrat &B);
 

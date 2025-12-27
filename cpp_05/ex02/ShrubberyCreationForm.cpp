@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/16 21:49:44 by yulpark           #+#    #+#             */
-/*   Updated: 2025/10/24 14:25:02 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/12/27 19:08:59 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,7 @@ const std::string &ShrubberyCreationForm::getType()
 {
 	return (this->target);
 }
-//void ShrubberyCreationForm::beSigned(Bureaucrat &B)
-//{
-//	if (B.getGrade() <= 145)
-//		this->sign = true;
-//	else
-//		throw GradeTooLowException();
-//}
+
 void ShrubberyCreationForm::action()const
 {
 	std::ofstream output_file(target + "_shrubbery.txt");

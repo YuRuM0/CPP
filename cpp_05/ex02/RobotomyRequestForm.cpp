@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/16 21:58:06 by yulpark           #+#    #+#             */
-/*   Updated: 2025/10/24 14:24:59 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/12/27 19:08:54 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,6 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(RobotomyRequestForm &obj)
 RobotomyRequestForm::~RobotomyRequestForm()
 {
 }
-
-//void RobotomyRequestForm::beSigned(Bureaucrat &B)
-//{
-//	if (B.getGrade() <= 72)
-//		this->sign = true;
-//	else
-//		throw GradeTooLowException();
-//}
 
 void RobotomyRequestForm::action() const
 {

@@ -1,4 +1,3 @@
-#include "Bureaucrat.hpp"
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -7,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 19:50:34 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/13 19:50:35 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/12/27 19:10:24 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +29,16 @@ Bureaucrat::Bureaucrat(Bureaucrat &obj) : name(obj.name), grade(obj.grade)
 {
 }
 
+Bureaucrat &Bureaucrat::operator=(Bureaucrat &obj)
+{
+	if (this != &obj)
+		this->grade = obj.grade;
+	return (*this);
+}
+
+Bureaucrat::~Bureaucrat()
+{
+}
 std::ostream &operator<<(std::ostream &out, Bureaucrat &obj)
 {
 	out << obj.getName() << ", bureaucrat grade " << obj.getGrade() << "." << std::endl; //is endl required?
@@ -49,18 +58,18 @@ unsigned int Bureaucrat::getGrade() const
 void Bureaucrat::incGrade(unsigned int amount)
 {
 	if (grade - amount < 1)
-		throw GradeTooLowException();
-	if (grade - amount > 150)
 		throw GradeTooHighException();
+	if (grade - amount > 150)
+		throw GradeTooLowException();
 	this->grade -= amount;
 }
 
 void Bureaucrat::decGrade(unsigned int amount)
 {
 	if (grade + amount < 1)
-		throw GradeTooLowException();
-	if (grade + amount > 150)
 		throw GradeTooHighException();
+	if (grade + amount > 150)
+		throw GradeTooLowException();
 	this->grade += amount;
 }
 
@@ -72,8 +81,21 @@ const char *Bureaucrat::GradeTooHighException::what() const noexcept
 
 const char *Bureaucrat::GradeTooLowException::what() const noexcept
 {
-	const char *msg = "Grade Too Low: the grade must be higher.\n";
+	const char *msg = "Grade Too Low: the grade must be higher than 150.\n";
 	return (msg);
+}
+
+void Bureaucrat::executeForm(AForm &Form) const
+{
+	try
+	{
+		Form.execute(*this);
+		std::cout << this->getName() << " executed Form " << Form.getName() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 }
 
 void Bureaucrat::signForm(AForm &F)
@@ -87,24 +109,4 @@ void Bureaucrat::signForm(AForm &F)
 	{
 		std::cout << this->getName() << " couldn't sign " << F.getName() << " because " << e.what() << std::endl;
 	}
-}
-
-void Bureaucrat::executeForm(AForm const &Form) const
-{
-	try
-	{
-		Form.execute(*this);
-		std::cout << this->getName() << " executed Form " << Form.getName() << std::endl;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
-	}
-}
-
-Bureaucrat &Bureaucrat::operator=(Bureaucrat &obj)
-{
-	if (this != &obj)
-		this->grade = obj.grade;
-	return (*this);
 }

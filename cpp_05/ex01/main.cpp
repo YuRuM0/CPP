@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 20:21:45 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/27 14:13:03 by yulpark          ###   ########.fr       */
+/*   Updated: 2025/12/27 18:55:33 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int main()
 		//std::cout << Tiago;
 
 		Bureaucrat Charles("Charles", 24);
-		//Charles.incGrade(2);
+		Charles.incGrade(2);
 		std::cout << Charles;
 		Charles.signForm(Form);
 	}

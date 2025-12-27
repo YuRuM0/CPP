@@ -1,4 +1,3 @@
-#include "Bureaucrat.hpp"
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -6,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/13 19:50:34 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/13 19:50:35 by yulpark          ###   ########.fr       */
+/*   Created: 2025/12/27 18:29:39 by yulpark           #+#    #+#             */
+/*   Updated: 2025/12/27 18:39:54 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,18 +29,28 @@ Bureaucrat::Bureaucrat(Bureaucrat &obj) : name(obj.name), grade(obj.grade)
 {
 }
 
+Bureaucrat &Bureaucrat::operator=(Bureaucrat &obj)
+{
+	if (this != &obj)
+		this->grade = obj.grade;
+	return (*this);
+}
+
+Bureaucrat::~Bureaucrat()
+{
+}
 std::ostream &operator<<(std::ostream &out, Bureaucrat &obj)
 {
-	out << obj.getName() << ", bureaucrat grade " << obj.getGrade() << "." << std::endl;
+	out << obj.getName() << ", bureaucrat grade " << obj.getGrade() << "." << std::endl; //is endl required?
 	return out;
 }
 
-std::string Bureaucrat::getName()
+std::string Bureaucrat::getName() const
 {
 	return (this->name);
 }
 
-unsigned int Bureaucrat::getGrade()
+unsigned int Bureaucrat::getGrade() const
 {
 	return (this->grade);
 }
@@ -66,13 +75,13 @@ void Bureaucrat::decGrade(unsigned int amount)
 
 const char *Bureaucrat::GradeTooHighException::what() const noexcept
 {
-	const char *msg = "Grade Too High.\n";
+	const char *msg = "Grade Too High: the grade must be lower than 1.\n";
 	return (msg);
 }
 
 const char *Bureaucrat::GradeTooLowException::what() const noexcept
 {
-	const char *msg = "Grade Too Low.\n";
+	const char *msg = "Grade Too Low: the grade must be higher than 150.\n";
 	return (msg);
 }
 
