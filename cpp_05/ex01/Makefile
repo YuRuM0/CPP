@@ -3,14 +3,15 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+         #
+#    By: ypark <ypark@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/08/13 20:20:33 by yulpark           #+#    #+#              #
-#    Updated: 2025/08/16 18:49:24 by yulpark          ###   ########.fr        #
+#    Created: 2026/06/04 16:21:30 by ypark             #+#    #+#              #
+#    Updated: 2026/06/17 17:17:07 by ypark            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Bureaucrat
+
+NAME = Form
 
 GREEN   = \033[32m
 RESET   = \033[0m

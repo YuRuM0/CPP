@@ -5,38 +5,107 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/16 21:58:12 by yulpark           #+#    #+#             */
-/*   Updated: 2025/10/24 14:20:56 by yulpark          ###   ########.fr       */
+/*   Created: 2026/06/04 16:21:34 by ypark             #+#    #+#             */
+/*   Updated: 2026/07/05 17:19:15 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "PresidentialPardonForm.hpp"
-#include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
-#include <ctime>
+#include "ShrubberyCreationForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
-int main()
+// int main()
+// {
+// 	try
+// 	{
+// 		Bureaucrat B1;
+// 		std::cout << B1;
+
+// 		B1.incGrade(5);
+// 		std::cout << B1;
+// 		B1.decGrade(10);
+// 		std::cout << B1;
+
+// 		Bureaucrat Nick("Nick", 10);
+// 		std::cout << Nick;
+
+// 		Bureaucrat Tiago("Tiago", 0);
+// 		std::cout << Tiago;
+//         Tiago.decGrade(5);
+//         std::cout << Tiago;
+
+// 		Bureaucrat Charles("Charles", 1);
+// 		std::cout << Charles;
+//         Charles.incGrade(1);
+//         std::cout << Charles;
+// 	}
+// 	catch (const std::exception &e)
+// 	{
+// 		std::cout << e.what() << std::endl;
+// 	}
+// 	return (0);
+// }
+
+
+int	main()
 {
-	//AForm Form("A form", false, 6, 7);
-	Bureaucrat Charles("Charles", 4);
-	PresidentialPardonForm PPF("PPF");
-	ShrubberyCreationForm SCF("Shrub");
-	RobotomyRequestForm RRF("robot");
-	try
 	{
-		std::cout << Charles;
-		Charles.signForm(PPF);
-		Charles.executeForm(PPF);
-		Charles.signForm(SCF);
-		Charles.executeForm(SCF);
-		Charles.signForm(RRF);
-		Charles.executeForm(RRF);
-		std::cout << "Target name: " << RRF.getTarget() << std::endl;
+		try
+		{
+			Bureaucrat teamLeader("John", 6);
+			std::cout << teamLeader << std::endl;
+			PresidentialPardonForm F1("Thomas");
+			std::cout << F1 << std::endl;
+			teamLeader.signForm(F1);
+			std::cout << F1 << std::endl;
+			teamLeader.executeForm(F1);
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+
+
 	}
-	catch (const std::exception &e)
+
+	std::cout << std::endl;
+
 	{
-		std::cout << e.what() << std::endl;
+		try
+		{
+			Bureaucrat teamLeader("Thiago", 45);
+			std::cout << teamLeader << std::endl;
+			RobotomyRequestForm F1("V");
+			std::cout << F1 << std::endl;
+			teamLeader.signForm(F1);
+			std::cout << F1 << std::endl;
+			teamLeader.executeForm(F1);
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+
 	}
-	return (0);
+
+	std::cout << std::endl;
+
+	{
+		try
+		{
+			Bureaucrat teamLeader("Marcos", 1);
+			std::cout << teamLeader << std::endl;
+			ShrubberyCreationForm F1("school");
+			std::cout << F1 << std::endl;
+			teamLeader.signForm(F1);
+			std::cout << F1 << std::endl;
+			teamLeader.executeForm(F1);
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+	}
+
 }

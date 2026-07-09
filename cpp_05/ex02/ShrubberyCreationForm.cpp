@@ -5,42 +5,47 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/16 21:49:44 by yulpark           #+#    #+#             */
-/*   Updated: 2025/12/27 19:08:59 by yulpark          ###   ########.fr       */
+/*   Created: 2026/06/17 17:34:51 by ypark             #+#    #+#             */
+/*   Updated: 2026/07/05 17:18:06 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AForm.hpp"
+
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string _target)
-: AForm("ShrubberyCreationForm", false, 145, 137), target(_target)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
+: AForm("ShrubberyCreationForm", false, 145, 137), target(target)
 {
-}
-
-ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm &obj)
-: AForm(obj), target(obj.target)
-{
-}
-
-ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm &obj)
-{
-	if (this != &obj)
-		AForm::operator=(obj);
-	return (*this);
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
 }
-const std::string &ShrubberyCreationForm::getType()
+
+ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm &obj)
 {
-	return (this->target);
+    if (this != &obj)
+	{
+        AForm::operator=(obj);
+		this->target = obj.target;
+	}
+    return (*this);
 }
 
-void ShrubberyCreationForm::action()const
+ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm &obj) : AForm(obj), target(obj.target)
 {
-	std::ofstream output_file(target + "_shrubbery.txt");
+}
+
+std::string ShrubberyCreationForm::getTarget() const
+{
+    return (target);
+}
+
+void ShrubberyCreationForm::act() const
+{
+	std::ofstream output_file(getTarget() + "_shrubbery.txt");
+	if (output_file.is_open())
+	{
 		output_file << "   *    *  ()   *   *\n"
 					<< "*        * /\\         *\n"
 					<< "      *   /i\\    *  *\n"
@@ -60,5 +65,10 @@ void ShrubberyCreationForm::action()const
 					<< " *     //o//i\\*\\\\   *\n"
 					<< "    * /i///*/\\\\\\o\\   *\n"
 					<< "  *    *    ||     *\n" << std::endl;
+		output_file.close();
+	}
+	else
+	{
+		std::cerr << "Error: could not open the file " << getTarget() + "_shrubbery.txt" << std::endl;
+	}
 }
-

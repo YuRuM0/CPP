@@ -5,28 +5,35 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/15 17:09:16 by yulpark           #+#    #+#             */
-/*   Updated: 2025/12/27 18:53:22 by yulpark          ###   ########.fr       */
+/*   Created: 2026/06/17 14:10:38 by ypark             #+#    #+#             */
+/*   Updated: 2026/07/05 16:19:43 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
-Form::Form() :  name("NoName"), sign(false), SignGrade(std::rand() % 150), ExecGrade(std::rand() % 150)
+std::ostream &operator<<(std::ostream &out, Form &obj)
 {
+    out << "Name: " << obj.getName() << "\n"
+    << "Is signed: " << obj.getIsSigned() << "\n"
+    << "Grade required to sign: " << obj.getSignGrade() << "\n"
+    << "Grade required to execute: " << obj.getExecGrade() << "\n";
+    return (out);
 }
 
-Form::Form(const std::string _name, bool _sign, const int _SignGrade, const int _ExecGrade)
-	: name(_name), sign(_sign), SignGrade(_SignGrade), ExecGrade(_ExecGrade)
+const char *Form::GradeTooHighException::what() const noexcept
 {
-	if (_SignGrade < 1 || _ExecGrade < 1)
-		throw GradeTooHighException();
-	if (_SignGrade > 150 || _ExecGrade > 150)
-		throw GradeTooLowException();
+    const char *msg = "Grade Too High: the grade must be lower.\n";
+	return (msg);
 }
 
-Form::Form(Form &obj)
-	: name(obj.name), sign(obj.sign), SignGrade(obj.SignGrade), ExecGrade(obj.ExecGrade)
+const char *Form::GradeTooLowException::what() const noexcept
+{
+    const char *msg = "Grade Too Low: the grade must be higher.\n";
+	return (msg);
+}
+
+Form::Form() : name("No name"), isSigned(false), signGrade(std::rand() % 150), execGrade(std::rand() % 150)
 {
 }
 
@@ -34,58 +41,53 @@ Form::~Form()
 {
 }
 
-Form &Form::operator=(Form &obj)
+Form::Form(const std::string name, const int signGrade, const int execGrade): name(name), signGrade(signGrade), execGrade(execGrade)
 {
-	if (this != &obj)
-		this->sign = obj.sign;
-	return (*this);
+    if (signGrade > 150 || execGrade > 150)
+        throw GradeTooLowException();
+    else if (signGrade < 1 || execGrade < 1)
+        throw GradeTooHighException();
+    this->isSigned = false;
 }
 
-std::string Form::getName() const
+Form::Form(const Form &obj): name(obj.name), isSigned(obj.isSigned), signGrade(obj.signGrade), execGrade(obj.execGrade)
 {
-	return (this->name);
 }
 
-bool Form::getSign() const
+Form &Form::operator=(const Form &obj)
 {
-	return (this->sign);
+    if (this != &obj)
+		this->isSigned = obj.isSigned;
+	return (*this);}
+
+const std::string Form::getName(void) const
+{
+    return (name);
 }
 
-int Form::getSignGrade() const
+bool Form::getIsSigned(void) const
 {
-	return (this->SignGrade);
+    return isSigned;
 }
 
-int Form::getExecGrade() const
+int Form::getSignGrade(void) const
 {
-	return (this->ExecGrade);
+    return signGrade;
 }
 
-void Form::beSigned(Bureaucrat &B)
+int Form::getExecGrade(void) const
 {
-	if (B.getGrade() <= this->SignGrade)
-		this->sign = true;
-	else
-		throw GradeTooLowException();
+    return execGrade;
 }
 
-std::ostream &operator<<(std::ostream &out, Form &obj)
+void Form::beSigned(const Bureaucrat &bureaucrat)
 {
-	out << "Name: " << obj.getName() << std::endl
-		<< "Signed: " << obj.getSign() << std::endl
-		<< "Sign Grade: " << obj.getSignGrade() << std::endl
-		<< "Execution Grade: " << obj.getExecGrade() << std::endl;
-	return out;
-}
-
-const char *Form::GradeTooHighException::what() const noexcept
-{
-	const char *msg = "Grade is too high.\n";
-	return (msg);
-}
-
-const char *Form::GradeTooLowException::what() const noexcept
-{
-	const char *msg = "Grade is too low.\n";
-	return (msg);
+//     Also, add a beSigned() member function to the Form that takes a Bureaucrat as a
+// parameter. It changes the form’s status to signed if the bureaucrat’s grade is high enough
+// (greater than or equal to the required one). Remember, grade 1 is higher than grade 2.
+// If the grade is too low, throw a Form::GradeTooLowException.
+    if (bureaucrat.getGrade() <= getSignGrade())
+        isSigned = true;
+    else
+        throw GradeTooLowException();
 }

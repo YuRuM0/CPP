@@ -3,21 +3,22 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+         #
+#    By: ypark <ypark@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/08/16 21:25:45 by yulpark           #+#    #+#              #
-#    Updated: 2025/12/27 19:11:30 by yulpark          ###   ########.fr        #
+#    Created: 2026/06/04 16:21:30 by ypark             #+#    #+#              #
+#    Updated: 2026/06/17 17:30:01 by ypark            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Bureaucrat
+
+NAME = ex02
 
 GREEN   = \033[32m
 RESET   = \033[0m
 
 CPP = c++
 CPP_FLAGS = -Wall -Wextra -Werror -std=c++17
-#CPP_FLAGS += -fsanitize=address
+CPP_FLAGS += -fsanitize=address
 
 SRCS = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
 OBJS_DIR = objs/
@@ -39,7 +40,6 @@ clean:
 
 fclean: clean
 	@rm -f $(NAME)
-	@rm -f *.txt
 
 re: fclean all
 

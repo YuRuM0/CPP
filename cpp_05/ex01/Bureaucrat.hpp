@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ypark <ypark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/13 19:50:38 by yulpark           #+#    #+#             */
-/*   Updated: 2025/12/27 18:46:54 by yulpark          ###   ########.fr       */
+/*   Created: 2026/06/04 16:21:51 by ypark             #+#    #+#             */
+/*   Updated: 2026/06/17 17:20:25 by ypark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#pragma once // #ifndef Header #define header 
 
 #include <iostream>
 #include <string>
@@ -21,24 +21,24 @@ class Form;
 
 class Bureaucrat
 {
-	private:
-		const std::string name;
-		unsigned int grade;
+    private:
+        const std::string name;
+        int grade;
+    public:
+        Bureaucrat();
+        ~Bureaucrat();
+        Bureaucrat(const std::string name, int grade);
+        Bureaucrat(const Bureaucrat& obj);
+        Bureaucrat &operator=(const Bureaucrat& obj);
 
-	public:
-		Bureaucrat();
-		Bureaucrat(const std::string name, unsigned int grade);
-		Bureaucrat (Bureaucrat &obj);
-		Bureaucrat &operator=(Bureaucrat &obj);
-		~Bureaucrat();
+        std::string getName() const;
+		int getGrade() const;
+        void incGrade(int amount);
+        void decGrade(int amount);
 
-		std::string getName() const;
-		unsigned int getGrade() const;
-		void incGrade(unsigned int amount);
-		void decGrade(unsigned int amount);
-		void signForm(Form &F);
-
-		class GradeTooHighException : public std::exception
+        void signForm(Form &Form) const;
+        
+        class GradeTooHighException : public std::exception
 		{
 			public:
 				const char* what() const noexcept override;

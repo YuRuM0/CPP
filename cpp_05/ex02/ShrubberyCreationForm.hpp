@@ -5,28 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/16 21:49:45 by yulpark           #+#    #+#             */
-/*   Updated: 2025/10/24 14:20:20 by yulpark          ###   ########.fr       */
+/*   Created: 2026/06/17 17:35:01 by ypark             #+#    #+#             */
+/*   Updated: 2026/07/05 17:14:49 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include "AForm.hpp"
-#include <iostream>
 #include <fstream>
+#include "AForm.hpp"
 
-class ShrubberyCreationForm :  public AForm
+class ShrubberyCreationForm : public AForm
 {
-	private:
-		std::string target;
-		bool sign;
-	public:
-		ShrubberyCreationForm(std::string _target);
-		ShrubberyCreationForm(ShrubberyCreationForm &obj);
-		ShrubberyCreationForm &operator=(ShrubberyCreationForm &obj);
-		~ShrubberyCreationForm();
-		const std::string &getType();
+    private:
+        std::string target;
 
-		//void beSigned(Bureaucrat &B) override;
-		void action()const override;
+    public:
+        ShrubberyCreationForm(std::string target);
+        ~ShrubberyCreationForm();
+        ShrubberyCreationForm &operator=(ShrubberyCreationForm &obj);
+        ShrubberyCreationForm(ShrubberyCreationForm &obj);
+
+        std::string getTarget() const;
+        void act() const override ;
 };

@@ -1,63 +1,52 @@
+#include "RobotomyRequestForm.hpp"
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ypark <ypark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/16 21:58:06 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/31 19:02:34 by yulpark          ###   ########.fr       */
+/*   Created: 2026/06/18 11:37:19 by ypark             #+#    #+#             */
+/*   Updated: 2026/06/18 11:37:20 by ypark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm(std::string _target)
-: AForm("RobotomyRequestForm", false, 72, 45), target(_target)
+RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("RobotomyRequestForm", false, 72, 45), target(target)
 {
-}
-
-RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm &obj)
-: AForm(obj), target(obj.target)
-{
-}
-
-RobotomyRequestForm &RobotomyRequestForm::operator=(RobotomyRequestForm &obj)
-{
-	if (this != &obj)
-		*this = obj;
-	return (*this);
 }
 
 RobotomyRequestForm::~RobotomyRequestForm()
 {
 }
 
-void RobotomyRequestForm::beSigned(Bureaucrat &B)
+RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm &obj) : target(obj.target)
 {
-	if (B.getGrade() <= 72)
-		this->sign = true;
-	else
-		throw GradeTooLowException();
 }
 
-void RobotomyRequestForm::execute(Bureaucrat const &executor) const
+RobotomyRequestForm &RobotomyRequestForm::operator=(RobotomyRequestForm &obj)
 {
-	if (this->sign == false)
-		throw UnsignedForm();
-	if (executor.getGrade() <= 45)
+    if (this != &obj)
 	{
-		std::cout << "Drilling noise...." << std::endl;
-		if (std::rand() % 2 == 0)
-			std::cout << target << " has been robotomised. " << std::endl;
-		else
-			std::cout << "Robotomy failed.\n";
+        AForm::operator=(obj);
+		this->target = obj.target;
 	}
-	else
-		throw GradeTooLowException();
+    return (*this);
+
 }
 
-const std::string &RobotomyRequestForm::getTarget()
+std::string RobotomyRequestForm::getTarget() const
 {
-	return (this->target);
+    return (target);
+}
+
+void RobotomyRequestForm::act() const
+{
+    std::cout << "Drilling noise....\n";
+    int num = rand() % 2;
+    if (num == 0)
+        std::cout << getTarget() << "has been robotomised succesfully\n";
+    else
+        std::cout << getTarget() << ": robotomy failed\n";
 }

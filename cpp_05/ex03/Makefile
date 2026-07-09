@@ -5,19 +5,20 @@
 #                                                     +:+ +:+         +:+      #
 #    By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/08/16 21:25:45 by yulpark           #+#    #+#              #
-#    Updated: 2025/08/27 14:35:55 by yulpark          ###   ########.fr        #
+#    Created: 2026/06/04 16:21:30 by ypark             #+#    #+#              #
+#    Updated: 2026/07/09 22:50:48 by yulpark          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Bureaucrat
+
+NAME = ex03
 
 GREEN   = \033[32m
 RESET   = \033[0m
 
 CPP = c++
 CPP_FLAGS = -Wall -Wextra -Werror -std=c++17
-#CPP_FLAGS += -fsanitize=address
+CPP_FLAGS += -fsanitize=address
 
 SRCS = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp
 OBJS_DIR = objs/

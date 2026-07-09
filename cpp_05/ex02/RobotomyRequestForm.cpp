@@ -1,48 +1,52 @@
+#include "RobotomyRequestForm.hpp"
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ypark <ypark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/16 21:58:06 by yulpark           #+#    #+#             */
-/*   Updated: 2025/12/27 19:08:54 by yulpark          ###   ########.fr       */
+/*   Created: 2026/06/18 11:37:19 by ypark             #+#    #+#             */
+/*   Updated: 2026/06/18 11:37:20 by ypark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm(std::string _target)
-: AForm("RobotomyRequestForm", false, 72, 45), target(_target)
+RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("RobotomyRequestForm", false, 72, 45), target(target)
 {
-}
-
-RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm &obj)
-: AForm(obj), target(obj.target)
-{
-}
-
-RobotomyRequestForm &RobotomyRequestForm::operator=(RobotomyRequestForm &obj)
-{
-	if (this != &obj)
-		AForm::operator=(obj);
-	return (*this);
 }
 
 RobotomyRequestForm::~RobotomyRequestForm()
 {
 }
 
-void RobotomyRequestForm::action() const
+RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm &obj) : target(obj.target)
 {
-	std::cout << "Drilling noise...." << std::endl;
-	if (std::rand() % 2 == 0)
-		std::cout << target << " has been robotomised. " << std::endl;
-	else
-		std::cout << "Robotomy failed.\n";
 }
 
-const std::string &RobotomyRequestForm::getTarget()
+RobotomyRequestForm &RobotomyRequestForm::operator=(RobotomyRequestForm &obj)
 {
-	return (this->target);
+    if (this != &obj)
+	{
+        AForm::operator=(obj);
+		this->target = obj.target;
+	}
+    return (*this);
+
+}
+
+std::string RobotomyRequestForm::getTarget() const
+{
+    return (target);
+}
+
+void RobotomyRequestForm::act() const
+{
+    std::cout << "Drilling noise....\n";
+    int num = rand() % 2;
+    if (num == 0)
+        std::cout << getTarget() << "has been robotomised succesfully\n";
+    else
+        std::cout << getTarget() << ": robotomy failed\n";
 }

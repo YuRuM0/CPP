@@ -5,52 +5,47 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/16 21:49:44 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/18 15:11:03 by yulpark          ###   ########.fr       */
+/*   Created: 2026/06/17 17:34:51 by ypark             #+#    #+#             */
+/*   Updated: 2026/07/05 17:18:06 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AForm.hpp"
+
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string _target)
-: AForm("ShrubberyCreationForm", false, 145, 137), target(_target)
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
+: AForm("ShrubberyCreationForm", false, 145, 137), target(target)
 {
-}
-
-ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm &obj)
-: AForm(obj), target(obj.target)
-{
-}
-
-ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm &obj)
-{
-	if (this != &obj)
-		*this = obj;
-	return (*this);
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
 }
-const std::string &ShrubberyCreationForm::getType()
+
+ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm &obj)
 {
-	return (this->target);
-}
-void ShrubberyCreationForm::beSigned(Bureaucrat &B)
-{
-	if (B.getGrade() <= 145)
-		this->sign = true;
-	else
-		throw GradeTooLowException();
-}
-void ShrubberyCreationForm::execute(Bureaucrat const & executor)const
-{
-	if (this->sign == false)
-		throw UnsignedForm();
-	if (executor.getGrade() <= 137)
+    if (this != &obj)
 	{
-		std::ofstream output_file(target + "_shrubbery.txt");
+        AForm::operator=(obj);
+		this->target = obj.target;
+	}
+    return (*this);
+}
+
+ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm &obj) : AForm(obj), target(obj.target)
+{
+}
+
+std::string ShrubberyCreationForm::getTarget() const
+{
+    return (target);
+}
+
+void ShrubberyCreationForm::act() const
+{
+	std::ofstream output_file(getTarget() + "_shrubbery.txt");
+	if (output_file.is_open())
+	{
 		output_file << "   *    *  ()   *   *\n"
 					<< "*        * /\\         *\n"
 					<< "      *   /i\\    *  *\n"
@@ -70,8 +65,10 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor)const
 					<< " *     //o//i\\*\\\\   *\n"
 					<< "    * /i///*/\\\\\\o\\   *\n"
 					<< "  *    *    ||     *\n" << std::endl;
+		output_file.close();
 	}
 	else
-		throw GradeTooLowException();
+	{
+		std::cerr << "Error: could not open the file " << getTarget() + "_shrubbery.txt" << std::endl;
+	}
 }
-

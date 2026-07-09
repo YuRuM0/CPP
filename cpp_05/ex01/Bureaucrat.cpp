@@ -3,97 +3,105 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ypark <ypark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/27 18:29:39 by yulpark           #+#    #+#             */
-/*   Updated: 2025/12/27 18:39:54 by yulpark          ###   ########.fr       */
+/*   Created: 2026/06/04 16:20:00 by ypark             #+#    #+#             */
+/*   Updated: 2026/06/17 17:19:59 by ypark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() : name("NoName"), grade(std::rand() % 150)
+Bureaucrat::Bureaucrat() : name("NoName"), grade(std::rand() % 150) // for const it has to be in the initialisation because it can't be added after construction
 {
 }
 
-Bureaucrat::Bureaucrat(const std::string name, unsigned int grade) : name(name)
+Bureaucrat::Bureaucrat(const std::string name, int grade) : name(name)
 {
-	if (grade < 1)
+    if (grade < 1)
 		throw GradeTooHighException();
 	if (grade > 150)
 		throw GradeTooLowException();
 	this->grade = grade;
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat &obj) : name(obj.name), grade(obj.grade)
+Bureaucrat::~Bureaucrat()
 {
 }
 
-Bureaucrat &Bureaucrat::operator=(Bureaucrat &obj)
+Bureaucrat::Bureaucrat(const Bureaucrat &obj): name(obj.name), grade(obj.grade)
+{
+}
+
+Bureaucrat &Bureaucrat::operator=(const Bureaucrat &obj)
 {
 	if (this != &obj)
 		this->grade = obj.grade;
 	return (*this);
 }
 
-Bureaucrat::~Bureaucrat()
-{
-}
-std::ostream &operator<<(std::ostream &out, Bureaucrat &obj)
-{
-	out << obj.getName() << ", bureaucrat grade " << obj.getGrade() << "." << std::endl; //is endl required?
-	return out;
-}
-
 std::string Bureaucrat::getName() const
 {
-	return (this->name);
+    return name;
 }
 
-unsigned int Bureaucrat::getGrade() const
+int Bureaucrat::getGrade() const
 {
-	return (this->grade);
+    return grade;
 }
 
-void Bureaucrat::incGrade(unsigned int amount)
+void Bureaucrat::incGrade(int amount)
 {
-	if (grade - amount < 1)
+    if (grade - amount < 1)
 		throw GradeTooHighException();
 	if (grade - amount > 150)
 		throw GradeTooLowException();
-	this->grade -= amount;
+    this->grade -= amount;
 }
 
-void Bureaucrat::decGrade(unsigned int amount)
+void Bureaucrat::decGrade(int amount)
 {
-	if (grade + amount < 1)
+    if (grade + amount < 1)
 		throw GradeTooHighException();
 	if (grade + amount > 150)
 		throw GradeTooLowException();
-	this->grade += amount;
+    this->grade += amount;
+}
+
+std::ostream &operator<<(std::ostream &out, Bureaucrat &obj)
+{
+    out << obj.getName() << ", bureaucrat grade " << obj.getGrade() << ". \n";
+    return (out);
 }
 
 const char *Bureaucrat::GradeTooHighException::what() const noexcept
 {
-	const char *msg = "Grade Too High: the grade must be lower than 1.\n";
+    const char *msg = "Grade Too High: the grade must be lower than 1.\n";
 	return (msg);
 }
 
 const char *Bureaucrat::GradeTooLowException::what() const noexcept
 {
-	const char *msg = "Grade Too Low: the grade must be higher than 150.\n";
+    const char *msg = "Grade Too Low: the grade must be higher than 150.\n";
 	return (msg);
 }
 
-void Bureaucrat::signForm(Form &F)
+void Bureaucrat::signForm(Form &form) const
 {
-	try
-	{
-		F.beSigned(*this);
-		std::cout << this->getName() << " signed " << F.getName() << std::endl;
-	}
-	catch(const std::exception& e)
-	{
-		std::cout << this->getName() << " couldn't sign " << F.getName() << " because " << e.what() << std::endl;
-	}
+    try
+    {
+        form.beSigned(*this);
+		std::cout << getName() << " signed " << form.getName() << "\n";
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << getName() << " couldn't sign " << form.getName() << " because " << e.what() << '\n';
+    }
+    
+// Then, add a signForm() memberfunctionintheBureaucratclass. Thisfunctionmust
+// call Form::beSigned() to attempt to sign the form. If the form is signed successfully, it
+// will print something like:
+// <bureaucrat> signed <form>
+// Otherwise, it will print something like:
+// <bureaucrat> couldn’t sign <form> because <reason>.
 }

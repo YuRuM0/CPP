@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/18 14:14:23 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/27 14:41:03 by yulpark          ###   ########.fr       */
+/*   Created: 2026/06/18 14:14:23 by yulpark           #+#    #+#             */
+/*   Updated: 2026/07/09 22:40:09 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,17 +49,17 @@ AForm *Intern::makeForm(std::string FormName, std::string FormTarget)
 {
 	std::string options[3] = {"shrubbery create", "robotomy request", "presidential pardon"};
 	AForm *(Intern::*forms[3])(std::string FormTarget) = {&Intern::ShrubberyCreate, &Intern::RobotomyRequest, &Intern::PresidentialPardon};
-	int i = -1;
-	while (++i < 4)
+	int i = 0;
+	for (int i = 0; i < 3; i++)
 	{
 		if (FormName == options[i])
 		{
 			std::cout << "Intern creates " << FormName << std::endl;
 			return ((this->*forms[i])(FormTarget));
 		}
-		if (FormName != options[i] && i == 3)
-			throw WrongFormNameException();
 	}
+	throw WrongFormNameException();
+	return NULL;
 }
 
 const char *Intern::WrongFormNameException::what() const noexcept

@@ -1,65 +1,66 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AForm.hpp                                          :+:      :+:    :+:   */
+/*   AForm.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
+/*   By: ypark <ypark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/16 21:43:38 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/18 00:07:19 by yulpark          ###   ########.fr       */
+/*   Created: 2026/06/17 14:10:37 by ypark             #+#    #+#             */
+/*   Updated: 2026/06/17 17:20:09 by ypark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#pragma once // #ifndef Header #define header
+
 #include <iostream>
 #include <string>
 #include <cstdlib>
 #include "Bureaucrat.hpp"
 
-//forward declaration:
 class Bureaucrat;
 
 class AForm
 {
-	private:
-		const std::string name;
-		bool sign;
-		const int SignGrade;
-		const int ExecGrade;
-	public:
-		AForm();
-		AForm(AForm &obj);
-		AForm(const std::string _name, bool _sign, const int _SignGrade, const int _ExecGrade);
-		virtual ~AForm();
-		AForm &operator=(AForm &obj);
+    private:
+        const std::string name;
+        bool isSigned;
+        const int signGrade;
+        const int execGrade;
+    protected:
+        // so that it goes through execute to run act. all the derived classes can still override
+        virtual void act() const = 0 ;
+    public:
+        AForm();
+        virtual ~AForm();
+        AForm(const std::string name, bool isSigned, const int signGrade, const int execGrade);
+        AForm(const AForm& obj);
+        AForm &operator=(const AForm& obj);
 
-		const std::string getName();
-		bool getSign();
-		const int getSignGrade();
-		const int getExecGrade();
+        const std::string getName(void) const;
+        bool getIsSigned(void) const;
+        int getSignGrade(void) const;
+        int getExecGrade(void) const;
 
-		virtual void beSigned(Bureaucrat &B) = 0;
-		virtual void execute(Bureaucrat const & executor)const;
+        void beSigned(const Bureaucrat &bureaucrat);
+        void execute(Bureaucrat const &executor) const;
 
-		class GradeTooHighException : public std::exception
+        class GradeTooHighException : public std::exception
 		{
 			public:
 				const char* what() const noexcept override;
 				// in std::exception, what() is a virtual func meant to give a textual description of the error
+				// the exception doesn't escape; not caught inside
 		};
-
 		class GradeTooLowException : public std::exception
 		{
 			public:
 				const char* what() const noexcept override;
 		};
-		class UnsignedForm : public std::exception
+        class Unsigned : public std::exception
 		{
 			public:
-				const char*what() const noexcept override;
+				const char* what() const noexcept override;
 		};
-
-
 };
 
 std::ostream &operator<<(std::ostream &out, AForm &obj);

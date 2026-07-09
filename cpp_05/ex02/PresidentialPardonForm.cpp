@@ -1,4 +1,3 @@
-#include "PresidentialPardonForm.hpp"
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -6,38 +5,41 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/16 21:58:09 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/16 21:58:10 by yulpark          ###   ########.fr       */
+/*   Created: 2026/06/18 11:56:35 by ypark             #+#    #+#             */
+/*   Updated: 2026/07/05 17:16:25 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-PresidentialPardonForm::PresidentialPardonForm(std::string _target)
-: AForm("PresidentialPardonForm", false, 25, 5), target(_target)
-{
-}
+#include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm &obj)
-: AForm(obj), target(obj.target)
+PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm("PresidentialPardonForm", false, 25, 5), target(target)
 {
-}
-
-PresidentialPardonForm &PresidentialPardonForm::operator=(PresidentialPardonForm &obj)
-{
-	if (this != &obj)
-		AForm::operator=(obj);
-	return (*this);
 }
 
 PresidentialPardonForm::~PresidentialPardonForm()
 {
 }
 
-const std::string &PresidentialPardonForm::getTarget()
+PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm &obj): target(obj.target)
 {
-	return (this->target);
 }
 
-void PresidentialPardonForm::action() const
+PresidentialPardonForm &PresidentialPardonForm::operator=(PresidentialPardonForm &obj)
 {
-	std::cout << target << " has been pardoned by Zaphod Beeblebrox.\n";
+    if (this != &obj)
+	{
+        AForm::operator=(obj);
+		this->target = obj.target;
+	}
+    return (*this);
+}
+
+std::string PresidentialPardonForm::getTarget()	const
+{
+    return (target);
+}
+
+void PresidentialPardonForm::act() const
+{
+    std::cout << getTarget() << " has been pardoned by Zaphod Beeblebrox. \n";
 }

@@ -5,50 +5,107 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/16 21:58:12 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/27 14:36:21 by yulpark          ###   ########.fr       */
+/*   Created: 2026/06/04 16:21:34 by ypark             #+#    #+#             */
+/*   Updated: 2026/07/09 22:54:50 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Intern.hpp"
 
-//int main()
-//{
-//	//AForm Form("A form", false, 6, 7);
-//	Bureaucrat Charles("Charles", 130);
-//	PresidentialPardonForm PPF("PPF");
-//	ShrubberyCreationForm SCF("Shrub");
-//	RobotomyRequestForm RRF("robot");
-
-//	try
-//	{
-//		std::cout << Charles;
-//		Charles.signForm(PPF);
-//		Charles.executeForm(PPF);
-//		Charles.signForm(SCF);
-//		Charles.executeForm(SCF);
-//		Charles.signForm(RRF);
-//		Charles.executeForm(RRF);
-//		std::cout << "Target name: " << RRF.getTarget() << std::endl;
-//	}
-//	catch (const std::exception &e)
-//	{
-//		std::cout << e.what() << std::endl;
-//	}
-//	return (0);
-//}
-
-int main()
+int	main()
 {
-	Intern someRandomIntern;
-	AForm * rrf;
-	Bureaucrat Charles("Charles", 1);
+	{
+		try
+		{
+			Intern intern;
+			AForm* rrf;
 
-	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-	Charles.signForm(*rrf);
-	Charles.executeForm(*rrf);
+			rrf = intern.makeForm("robotomy request", "Bender");
+			delete rrf;
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+	}
+	{
+		try
+		{
+			Intern intern;
+			AForm* rrf;
 
-	std::cout << *rrf << std::endl;
-	std::cout << Charles << std::endl;
-	delete rrf;
+			rrf = intern.makeForm("shrubbery create", "Bender");
+			std::cout << *rrf << std::endl;
+			delete rrf;
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+	}
+	{
+		try
+		{
+			Intern intern;
+			AForm* rrf;
+
+			rrf = intern.makeForm("", "");
+			std::cout << *rrf << std::endl;
+			delete rrf;
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+	}
+	{
+		try
+		{
+			Intern intern;
+			AForm* rrf;
+
+			rrf = intern.makeForm("presidential pardon", "Bender");
+			std::cout << *rrf << std::endl;
+			delete rrf;
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+	}
+	{
+		try
+		{
+			Intern intern;
+			AForm* rrf;
+
+			rrf = intern.makeForm("unknown", "Bender");
+			std::cout << *rrf << std::endl;
+			delete rrf;
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+	}
+	//{
+	//	try
+	//	{
+	//		Bureaucrat teamLeader("John", 6);
+	//		std::cout << teamLeader << std::endl;
+	//		PresidentialPardonForm F1("Thomas");
+	//		std::cout << F1 << std::endl;
+	//		teamLeader.signForm(F1);
+	//		std::cout << F1 << std::endl;
+	//		teamLeader.executeForm(F1);
+	//	}
+	//	catch(const std::exception& e)
+	//	{
+	//		std::cerr << e.what() << '\n';
+	//	}
+
+
+	//}
+
+
 }
