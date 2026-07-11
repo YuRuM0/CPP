@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ypark <ypark@student.42.fr>                +#+  +:+       +#+         #
+#    By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/04 16:21:30 by ypark             #+#    #+#              #
-#    Updated: 2026/06/17 17:30:01 by ypark            ###   ########.fr        #
+#    Updated: 2026/07/11 20:00:55 by yulpark          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,8 @@ GREEN   = \033[32m
 RESET   = \033[0m
 
 CPP = c++
-CPP_FLAGS = -Wall -Wextra -Werror -std=c++17
-CPP_FLAGS += -fsanitize=address
+CPPFLAGS = -Wall -Wextra -Werror -std=c++17
+CPPFLAGS += -fsanitize=address
 
 SRCS = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
 OBJS_DIR = objs/

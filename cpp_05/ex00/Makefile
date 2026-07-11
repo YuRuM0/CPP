@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ypark <ypark@student.42.fr>                +#+  +:+       +#+         #
+#    By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/04 16:21:30 by ypark             #+#    #+#              #
-#    Updated: 2026/06/04 16:21:32 by ypark            ###   ########.fr        #
+#    Updated: 2026/07/11 20:08:04 by yulpark          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,17 +23,17 @@ CPP_FLAGS += -fsanitize=address
 SRCS = main.cpp Bureaucrat.cpp
 OBJS_DIR = objs/
 OBJS_O = $(SRCS:.cpp=.o)
-OBJS = $(addprefix $(OBJS_DIR), $(OBJS_O))
+OBJS = $(addprefix $(OBJS_DIR), $(OBJS_O)) //prepends the OBJS_DIR to each object file name
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	@$(CPP) $(CPPFLAGS) $(OBJS) -o $(NAME)
+$(NAME): $(OBJS)  //to build the target $(NAME), it depends on the object files $(OBJS)
+	@$(CPP) $(CPP_FLAGS) $(OBJS) -o $(NAME) // -o: name the output file
 	@echo "$(GREEN)Done!!$(RESET)\n"
 
 $(OBJS_DIR)%.o: %.cpp Makefile
 	@mkdir -p $(dir $@)
-	@$(CPP) $(CPPFLAGS) -c $< -o $@
+	@$(CPP) $(CPP_FLAGS) -c $< -o $@ // -c: compile only, do not link. $<: first prerequisite (the .cpp file), $@: target (the .o file)
 
 clean:
 	@rm -fr $(OBJS_DIR)

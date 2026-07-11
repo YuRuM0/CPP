@@ -6,7 +6,7 @@
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/17 14:10:38 by ypark             #+#    #+#             */
-/*   Updated: 2026/07/05 16:19:43 by yulpark          ###   ########.fr       */
+/*   Updated: 2026/07/11 20:32:36 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,8 @@ Form &Form::operator=(const Form &obj)
 {
     if (this != &obj)
 		this->isSigned = obj.isSigned;
-	return (*this);}
+	return (*this);
+}
 
 const std::string Form::getName(void) const
 {

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ypark <ypark@student.42.fr>                +#+  +:+       +#+         #
+#    By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/04 16:21:30 by ypark             #+#    #+#              #
-#    Updated: 2026/06/17 17:17:07 by ypark            ###   ########.fr        #
+#    Updated: 2026/07/11 20:00:46 by yulpark          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,12 +28,12 @@ OBJS = $(addprefix $(OBJS_DIR), $(OBJS_O))
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@$(CPP) $(CPPFLAGS) $(OBJS) -o $(NAME)
+	@$(CPP) $(CPP_FLAGS) $(OBJS) -o $(NAME)
 	@echo "$(GREEN)Done!!$(RESET)\n"
 
 $(OBJS_DIR)%.o: %.cpp Makefile
 	@mkdir -p $(dir $@)
-	@$(CPP) $(CPPFLAGS) -c $< -o $@
+	@$(CPP) $(CPP_FLAGS) -c $< -o $@
 
 clean:
 	@rm -fr $(OBJS_DIR)
