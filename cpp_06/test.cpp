@@ -1,24 +1,7 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ScalarConverter.cpp                                :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/11 20:46:58 by yulpark           #+#    #+#             */
-/*   Updated: 2026/07/16 22:21:22 by yulpark          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
-#include "ScalarConverter.hpp"
+#include <iostream>
+#include <string.h>
 
-//void ScalarConverter::convert(const std::string &literal)
-//{
-//	std::string	output[4] = {"char: ", "int: ", "float: ", "double: "};
-
-//	for (int i = 0; i < 4; i++)
-//		std::cout << output[i] << std::endl;
-//}
 
 static bool isSpecial(const std::string &literal)
 {
@@ -109,19 +92,21 @@ static bool isDouble(const std::string &literal)
 	return (true);
 }
 
-static Type checker(const std::string &literal)
+int main(int argc, char **argv)
 {
-	if (literal.empty())
-		return (NONE);
-	else if (isSpecial(literal))
-		return (SPECIAL);
-	else if (isChar(literal))
-		return (CHAR);
-	else if (isInt(literal))
-		return (INT);
-	else if (isFloat(literal))
-		return (FLOAT);
-	else if (isDouble(literal))
-		return (DOUBLE);
-	return (NONE);
+    if (argc != 2)
+    {
+        std::cout << "Usage: ./test <literal>" << std::endl;
+        return (1);
+    }
+    std::string literal = argv[1];
+
+    std::cout << "Input: \"" << literal << "\"" << std::endl;
+    std::cout << "isChar:   " << isChar(literal) << std::endl;
+    std::cout << "isInt:    " << isInt(literal) << std::endl;
+    std::cout << "isFloat:  " << isFloat(literal) << std::endl;
+    std::cout << "isDouble: " << isDouble(literal) << std::endl;
+    std::cout << "isSpecial:" << isSpecial(literal) << std::endl;
+
+    return (0);
 }

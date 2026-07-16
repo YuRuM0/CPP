@@ -5,32 +5,38 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/18 20:54:55 by yulpark           #+#    #+#             */
-/*   Updated: 2025/08/23 18:04:07 by yulpark          ###   ########.fr       */
+/*   Created: 2026/07/11 20:47:04 by yulpark           #+#    #+#             */
+/*   Updated: 2026/07/16 21:43:53 by yulpark          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <cstring>
+#pragma once
 
-enum Types
+#include <iostream>
+#include <string>
+
+#define INT_MIN -2147483648
+#define INT_MAX 2147483647
+
+enum Type
 {
 	CHAR,
 	INT,
 	FLOAT,
 	DOUBLE,
-	PSEUDO,
-	INVALID
+	SPECIAL,
+	NONE
 };
 
 class ScalarConverter
 {
-	public:
-		static void convert(std::string literal);
-};
+	private:
+		// so that they are not instantiable, if not written you get automatically but you want it to override but private so no access
+		ScalarConverter() = delete;
+		~ScalarConverter() = delete;
+		ScalarConverter(const ScalarConverter &obj) = delete;
+		ScalarConverter &operator=(const ScalarConverter &obj) = delete;
 
-bool isChar(const std::string& literal);
-bool isFloat(const std::string& literal);
-bool isInt(const std::string& literal, int n);
-bool isDouble(const std::string& literal);
-bool isPseudo(std::string &literal);
+	public:
+		static void convert(const std::string &literal);
+};

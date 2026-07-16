@@ -6,7 +6,7 @@
 #    By: yulpark <yulpark@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/18 20:54:55 by yulpark           #+#    #+#              #
-#    Updated: 2025/08/20 16:42:53 by yulpark          ###   ########.fr        #
+#    Updated: 2026/07/11 20:46:17 by yulpark          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ RESET   = \033[0m
 
 CPP = c++
 CPP_FLAGS = -Wall -Wextra -Werror -std=c++17
-#CPP_FLAGS += -fsanitize=address
+CPP_FLAGS += -fsanitize=address
 
 SRCS = main.cpp ScalarConverter.cpp
 OBJS_DIR = objs/
@@ -27,12 +27,12 @@ OBJS = $(addprefix $(OBJS_DIR), $(OBJS_O))
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@$(CPP) $(CPPFLAGS) $(OBJS) -o $(NAME)
+	@$(CPP) $(CPP_FLAGS) $(OBJS) -o $(NAME)
 	@echo "$(GREEN)Done!!$(RESET)\n"
 
 $(OBJS_DIR)%.o: %.cpp Makefile
 	@mkdir -p $(dir $@)
-	@$(CPP) $(CPPFLAGS) -c $< -o $@
+	@$(CPP) $(CPP_FLAGS) -c $< -o $@
 
 clean:
 	@rm -fr $(OBJS_DIR)
